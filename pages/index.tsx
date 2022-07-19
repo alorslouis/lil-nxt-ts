@@ -1,6 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
+import { useEffect } from "react";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -13,9 +15,10 @@ const Home: NextPage = () => {
       </Head>
 
       <main className="container mx-auto py-10">
-        <h1 className="text-bold text-xl">LILLIES</h1>
+        <Link href="/">
+          <h1 className="text-bold font-black text-xl text-center">LILLIES</h1>
+        </Link>
         <p className="text-xl">custom couture</p>
-        <p className="text-9xl">custom couture</p>
       </main>
 
       <footer className={styles.footer}>
