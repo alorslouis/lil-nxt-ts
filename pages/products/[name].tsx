@@ -2,6 +2,7 @@ import type { NextPage, GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 export interface AirRecords {
@@ -53,7 +54,10 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 function Product({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
-  return <div>test</div>;
+  const router = useRouter();
+  const { name } = router.query;
+
+  return <div>test - record: {name}</div>;
 }
 
 export default Product;

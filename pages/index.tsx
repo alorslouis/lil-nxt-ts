@@ -1,11 +1,53 @@
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 import styles from "../styles/Home.module.css";
+import type { Record, AirRecords } from "./products/[name]";
 
-const Home: NextPage = () => {
+const dummy = {
+  records: [
+    {
+      id: "recL5Yp4djMfD0FMA",
+      createdTime: "2022-07-16T22:58:24.000Z",
+      fields: {
+        date: "2022-06-10",
+        isActive: true,
+        brand: "levis",
+        title: "test",
+        size: "34",
+      },
+    },
+    {
+      id: "recXjDYbg6IEuAoMq",
+      createdTime: "2022-07-16T23:05:00.000Z",
+      fields: {
+        date: "2022-06-10",
+        isActive: true,
+        brand: "levis",
+        title: "testte",
+        size: "34",
+      },
+    },
+  ],
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await fetch(
+    `https://api.airtable.com/v0/${process.env.base_id}/products/?api_key=${process.env.api_key}`
+  );
+  const records = (await res.json()) as AirRecords;
+
+  return {
+    props: {
+      records,
+    },
+  };
+};
+
+function Home({ records }: AirRecords) {
+  console.log(records);
   return (
     <div>
       <Head>
@@ -19,6 +61,12 @@ const Home: NextPage = () => {
           <h1 className="text-bold font-black text-xl text-center">LILLIES</h1>
         </Link>
         <p className="text-xl">custom couture</p>
+        {dummy.records.map((record: Record) => (
+          <Link href={`/products/${record.id}`}>
+            <div>{record.fields.title}</div>
+          </Link>
+        ))}
+        {/* <div>{Object(records)</div> */}
       </main>
 
       <footer className={styles.footer}>
@@ -35,6 +83,6 @@ const Home: NextPage = () => {
       </footer>
     </div>
   );
-};
+}
 
 export default Home;
