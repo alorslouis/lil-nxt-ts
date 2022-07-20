@@ -5,8 +5,14 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
+// export interface AirRecords {
+//   records: Array<Record>;
+// }
+
 export interface AirRecords {
-  records: Record[];
+  records: Array<{
+    record: Record;
+  }>;
 }
 
 export interface Record {
@@ -57,7 +63,14 @@ function Product({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter();
   const { name } = router.query;
 
-  return <div>test - record: {name}</div>;
+  return (
+    <div>
+      <Link href="/">
+        <h1 className="text-bold font-black text-xl text-center">LILLIES</h1>
+      </Link>
+      test - record: {name}
+    </div>
+  );
 }
 
 export default Product;
