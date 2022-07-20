@@ -74,6 +74,14 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
       test - record: {name}
       test - record: {post.fields.title}
       test - record: {product.id}, {product.createdTime}
+      <div>img: {product.fields.attach[0].url}</div>
+      <div>
+        <Image
+          src={product.fields.attach[0].url}
+          width={product.fields.attach[0].width}
+          height={product.fields.attach[0].height}
+        />
+      </div>
     </div>
   );
 }
