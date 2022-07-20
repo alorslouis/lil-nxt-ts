@@ -46,11 +46,12 @@ export async function getStaticPaths() {
   return { paths, fallback: false };
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const route = params?.name;
   const res = await fetch(
-    `https://api.airtable.com/v0/${process.env.base_id}/products/?api_key=${process.env.api_key}`
+    `https://api.airtable.com/v0/${process.env.base_id}/products/${route}/?api_key=${process.env.api_key}`
   );
-  const post: Record = await res.json();
+  const post = (await res.json()) as Record;
 
   return {
     props: {
@@ -59,9 +60,11 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-function Product({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
+function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter();
   const { name } = router.query;
+
+  const product: Record = post;
 
   return (
     <div>
@@ -69,6 +72,8 @@ function Product({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
         <h1 className="text-bold font-black text-xl text-center">LILLIES</h1>
       </Link>
       test - record: {name}
+      test - record: {post.fields.title}
+      test - record: {product.id}, {product.createdTime}
     </div>
   );
 }

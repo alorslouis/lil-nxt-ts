@@ -53,7 +53,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch(
     `https://api.airtable.com/v0/${process.env.base_id}/products/?api_key=${process.env.api_key}`
   );
-  const recs: AirProps = (await res.json()) as AirProps;
+  const recs = (await res.json()) as AirProps;
 
   return {
     props: {
@@ -65,7 +65,7 @@ export const getStaticProps: GetStaticProps = async () => {
 const Home: NextPage<AirProps> = ({ recs }) => {
   const products = recs;
   // console.log(products);
-  console.log(recs.records[0]);
+  console.log(products.records[0]);
   console.log(recs.records);
   // console.log(dummy);
   return (
@@ -84,7 +84,6 @@ const Home: NextPage<AirProps> = ({ recs }) => {
           <h1 className="text-bold font-black text-xl text-center">LILLIES</h1>
         </Link>
         <p className="text-xl">custom couture</p>
-        <p className="text-xl">{recs.records[0].id}</p>
 
         <div className="container text-center">
           {/* <div>{products}</div> */}
@@ -101,7 +100,7 @@ const Home: NextPage<AirProps> = ({ recs }) => {
           {/* <div>{records[0].fields.brand}</div> */}
           <ul>
             {products &&
-              products.records.map((record: Record) => (
+              products.records.map((record) => (
                 <li key={record.id}>
                   <Link href={`/products/${record.id}`}>
                     <div>
