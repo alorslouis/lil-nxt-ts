@@ -65,13 +65,13 @@ export const getStaticProps: GetStaticProps = async () => {
 const Home: NextPage<AirProps> = ({ recs }) => {
   const products = recs;
   // console.log(products);
-  console.log(products.records[0]);
-  console.log(recs.records);
+  // console.log(products.records[0]);
+  // console.log(recs.records);
   // console.log(dummy);
   return (
     <>
       <Head>
-        <title>LILLIES.STUDIO</title>
+        <title>LILLIES</title>
         <meta
           name="description"
           content="custom couture - hecho en barcelona"
@@ -80,12 +80,17 @@ const Home: NextPage<AirProps> = ({ recs }) => {
       </Head>
 
       <main className="container mx-auto py-10">
-        <Link href="/">
-          <h1 className="text-bold font-black text-xl text-center">LILLIES</h1>
-        </Link>
-        <p className="text-xl">custom couture</p>
+        <div className="text-center">
+          <Link href="/">
+            <h1 className="text-bold font-black text-4xl text-center">
+              LILLIES
+            </h1>
+          </Link>
+          <div className="text-xs">BCN • LDN • SAN</div>
+          <p className="text-xl">custom couture</p>
+        </div>
 
-        <div className="container text-center">
+        <div className="container text-center py-8">
           {/* <div>{products}</div> */}
           <ul>
             {dummy.records.map((record) => (

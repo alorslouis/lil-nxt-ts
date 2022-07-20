@@ -71,6 +71,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
       <Link href="/">
         <h1 className="text-bold font-black text-xl text-center">LILLIES</h1>
       </Link>
+      <div className="container text-center mx-auto">container</div>
       test - record: {name}
       test - record: {post.fields.title}
       test - record: {product.id}, {product.createdTime}
