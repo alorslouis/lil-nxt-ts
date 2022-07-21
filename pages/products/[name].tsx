@@ -27,6 +27,7 @@ export interface Fields {
   brand: string;
   title: string;
   size: string;
+  price: number;
 }
 
 export async function getStaticPaths() {
@@ -67,23 +68,21 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   const product: Record = post;
 
   return (
-    <div>
-      <Link href="/">
-        <h1 className="text-bold font-black text-xl text-center">LILLIES</h1>
-      </Link>
-      <div className="container text-center mx-auto">container</div>
+    <>
+      <div className=" text-center mx-auto p-4">container</div>
       test - record: {name}
       test - record: {post.fields.title}
       test - record: {product.id}, {product.createdTime}
-      <div>img: {product.fields.attach[0].url}</div>
+      test - price: ${product.fields.price}
+      {/* <div>img: {product.fields.attach[0].url}</div>
       <div>
         <Image
           src={product.fields.attach[0].url}
           width={product.fields.attach[0].width}
           height={product.fields.attach[0].height}
         />
-      </div>
-    </div>
+      </div> */}
+    </>
   );
 }
 

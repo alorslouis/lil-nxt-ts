@@ -70,70 +70,36 @@ const Home: NextPage<AirProps> = ({ recs }) => {
   // console.log(dummy);
   return (
     <>
-      <Head>
-        <title>LILLIES</title>
-        <meta
-          name="description"
-          content="custom couture - hecho en barcelona"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <div className="container text-center py-8">
+        {/* <div>{products}</div> */}
+        <ul>
+          {dummy.records.map((record) => (
+            <li key={record.id}>
+              <Link href={`/products/${record.id}`}>
+                <div>{record.fields.title}</div>
+              </Link>
+            </li>
+          ))}
+        </ul>
 
-      <main className="container mx-auto py-10">
-        <div className="text-center">
-          <Link href="/">
-            <h1 className="text-bold font-black text-4xl text-center">
-              LILLIES
-            </h1>
-          </Link>
-          <div className="text-xs">BCN • LDN • SAN</div>
-          <p className="text-xl">custom couture</p>
-        </div>
-
-        <div className="container text-center py-8">
-          {/* <div>{products}</div> */}
-          <ul>
-            {dummy.records.map((record) => (
+        {/* <div>{records[0].fields.brand}</div> */}
+        <ul>
+          {products &&
+            products.records.map((record) => (
               <li key={record.id}>
                 <Link href={`/products/${record.id}`}>
-                  <div>{record.fields.title}</div>
+                  <div>
+                    {record.fields.title}, {record.fields.brand}
+                  </div>
                 </Link>
               </li>
             ))}
-          </ul>
-
-          {/* <div>{records[0].fields.brand}</div> */}
-          <ul>
-            {products &&
-              products.records.map((record) => (
-                <li key={record.id}>
-                  <Link href={`/products/${record.id}`}>
-                    <div>
-                      {record.fields.title}, {record.fields.brand}
-                    </div>
-                  </Link>
-                </li>
-              ))}
-          </ul>
-          {/* <div>{products ? products.records[0].fields.date : "loading"}</div> */}
-          {/* <div>{records ? records.length : "loading"}</div> */}
-        </div>
-        {/* <div>{records[0].id}</div> */}
-        {/* <div>{Object(records)</div> */}
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+        </ul>
+        {/* <div>{products ? products.records[0].fields.date : "loading"}</div> */}
+        {/* <div>{records ? records.length : "loading"}</div> */}
+      </div>
+      {/* <div>{records[0].id}</div> */}
+      {/* <div>{Object(records)</div> */}
     </>
   );
 };
