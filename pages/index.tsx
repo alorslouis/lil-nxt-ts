@@ -35,17 +35,7 @@ const dummy = {
 
 interface AirProps {
   recs: {
-    records: {
-      id: string;
-      createdTime: string;
-      fields: {
-        date: string;
-        isActive: boolean;
-        brand: string;
-        title: string;
-        size: string;
-      };
-    }[];
+    records: Record[];
   };
 }
 
@@ -53,7 +43,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch(
     `https://api.airtable.com/v0/${process.env.base_id}/products/?api_key=${process.env.api_key}`
   );
-  const recs = (await res.json()) as AirProps;
+  const recs = (await res.json()) as AirRecords;
 
   return {
     props: {
@@ -61,6 +51,18 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   };
 };
+
+function ProdCard(rec: Record) {
+  return (
+    <div className="flex-col flex-auto m-8 py-8 border-double border-neutral-900 border-4 rounded-md">
+      <div>img</div>
+      <div className="font-bold text-lg">product name</div>
+      <div>product brand</div>
+      <div className="font-thin">price</div>
+      {rec.id}
+    </div>
+  );
+}
 
 const Home: NextPage<AirProps> = ({ recs }) => {
   const products = recs;
@@ -70,9 +72,9 @@ const Home: NextPage<AirProps> = ({ recs }) => {
   // console.log(dummy);
   return (
     <>
-      <div className="container text-center py-8">
+      <div className="container text-center">
         {/* <div>{products}</div> */}
-        <ul>
+        {/* <ul>
           {dummy.records.map((record) => (
             <li key={record.id}>
               <Link href={`/products/${record.id}`}>
@@ -80,27 +82,42 @@ const Home: NextPage<AirProps> = ({ recs }) => {
               </Link>
             </li>
           ))}
-        </ul>
+        </ul> */}
 
         {/* <div>{records[0].fields.brand}</div> */}
-        <ul>
+        <ul className="grid md:grid-cols-2 gap-4">
           {products &&
             products.records.map((record) => (
               <li key={record.id}>
                 <Link href={`/products/${record.id}`}>
-                  <div>
-                    {record.fields.title}, {record.fields.brand}
+                  <div className="flex-col flex-auto m-2 py-8 border-double border-neutral-900 border-4 rounded-md hover:-translate-y-1 transition">
+                    <Image
+                      key={record.fields.attach[0].url}
+                      src={record.fields.attach[0].url}
+                      width={record.fields.attach[0].width}
+                      height={record.fields.attach[0].height}
+                    />
+
+                    <div className="font-bold text-lg">
+                      {record.fields.title}
+                    </div>
+                    <div>{record.fields.brand}</div>
+
+                    {/* <div>{record.fields}</div> */}
+                    {/* <div className="font-thin">price</div> */}
                   </div>
                 </Link>
               </li>
             ))}
         </ul>
+
         <div className="flex-col flex-auto m-8 py-8 border-double border-neutral-900 border-4 rounded-md">
           <div>img</div>
           <div className="font-bold text-lg">product name</div>
           <div>product brand</div>
           <div className="font-thin">price</div>
         </div>
+
         {/* <div>{products ? products.records[0].fields.date : "loading"}</div> */}
         {/* <div>{records ? records.length : "loading"}</div> */}
       </div>

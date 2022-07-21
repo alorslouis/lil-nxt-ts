@@ -27,11 +27,11 @@ export interface Fields {
   brand: string;
   title: string;
   size: string;
-  price: number;
-  attach: Attach[];
+  priceEur: number;
+  attach: Attachment[];
 }
 
-export interface Attach {
+export interface Attachment {
   id: string;
   width: number;
   height: number;
@@ -97,25 +97,44 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
 
   return (
     <>
-      <div className=" text-center mx-auto p-4">container</div>
-      test - record: {name}
-      test - record: {post.fields.title}
-      test - record: {product.id}, {product.createdTime}
-      test - price: €{product.fields.price}
-      <div>
-        <button
-          className="snipcart-add-item"
-          data-item-id={product.id}
-          data-item-price={product.fields.price}
-          data-item-url={`/products/${product.id}`}
-          data-item-image={product.fields.attach[0].thumbnails.small.url}
-          data-item-name={product.fields.title}
-        >
-          Add to Cart
-        </button>
+      <div className="flex flex-col lg:flex-row">
+        <div>
+          {product.fields.attach &&
+            product?.fields?.attach.map((attach) => (
+              <Image
+                key={attach.url}
+                src={attach.url}
+                width={attach.width}
+                height={attach.height}
+              />
+            ))}
+        </div>
+        <div className="">
+          test - record: {name}
+          test - record: {product.fields.title}
+          size: {product.fields.size}
+          test - record: {product.id}, {product.createdTime}
+          test - price: €{product.fields.priceEur}
+          {/* <div> */}
+          <button
+            className="snipcart-add-item p-4 m-4 text-white"
+            data-item-id={product.id}
+            data-item-price={product.fields.priceEur}
+            data-item-url={`/products/${product.id}`}
+            data-item-image={
+              product.fields.attach &&
+              product.fields.attach[0].thumbnails.small.url
+            }
+            data-item-name={product.fields.title}
+          >
+            <span className="bg-black p-6">Add to Cart</span>
+          </button>
+        </div>
       </div>
-      {/* <div>img: {product.fields.attach[0].url}</div>
-      <div>
+      {/* </div> */}
+      {/* <div>img: {product.fields.attach[0].url}</div> */}
+
+      {/* <div>
         <Image
           src={product.fields.attach[0].url}
           width={product.fields.attach[0].width}

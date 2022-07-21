@@ -14,14 +14,18 @@ export default function Layout({ children }: any) {
             </h1>
           </Link>
           <p className="text-xs">BCN • LDN • SAN</p>
+          {/* <hr /> */}
+          {/* <div className="snipcart-checkout">cart</div>
+          <span className="snipcart-items-count"></span>
+          <span className="snipcart-total-price"></span>
           <div className="flex justify-evenly py-4">
             <p>cat2</p>
             <p>cat2</p>
             <p>cat2</p>
-          </div>
+          </div> */}
           {/* <p className="text-xl">custom couture</p> */}
         </nav>
-        <main className="text-center h-full ">{children}</main>
+        <main className="text-center ">{children}</main>
 
         <footer className="text-center">
           <p>footer</p>
