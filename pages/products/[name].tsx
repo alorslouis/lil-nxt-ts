@@ -28,6 +28,34 @@ export interface Fields {
   title: string;
   size: string;
   price: number;
+  attach: Attach[];
+}
+
+export interface Attach {
+  id: string;
+  width: number;
+  height: number;
+  url: string;
+  filename: string;
+  size: number;
+  type: string;
+  thumbnails: {
+    small: {
+      url: string;
+      width: number;
+      height: number;
+    };
+    large: {
+      url: string;
+      width: number;
+      height: number;
+    };
+    full: {
+      url: string;
+      width: number;
+      height: number;
+    };
+  };
 }
 
 export async function getStaticPaths() {
@@ -80,7 +108,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
           data-item-id={product.id}
           data-item-price={product.fields.price}
           data-item-url={`/products/${product.id}`}
-          data-item-image={product}
+          data-item-image={product.fields.attach[0].thumbnails.small.url}
           data-item-name={product.fields.title}
         >
           Add to Cart
