@@ -101,7 +101,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
       test - record: {name}
       test - record: {post.fields.title}
       test - record: {product.id}, {product.createdTime}
-      test - price: ${product.fields.price}
+      test - price: €{product.fields.price}
       <div>
         <button
           className="snipcart-add-item"
