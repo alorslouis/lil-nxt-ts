@@ -1,8 +1,11 @@
+import Head from "next/head";
 import Link from "next/link";
+import Script from "next/script";
 
 export default function Layout({ children }: any) {
   return (
     <>
+      <Head>f</Head>
       <div className="container flex flex-col mx-auto h-screen">
         <nav className="text-center py-4 ">
           <Link href="/">

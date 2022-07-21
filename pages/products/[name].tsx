@@ -74,6 +74,18 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
       test - record: {post.fields.title}
       test - record: {product.id}, {product.createdTime}
       test - price: ${product.fields.price}
+      <div>
+        <button
+          className="snipcart-add-item"
+          data-item-id={product.id}
+          data-item-price={product.fields.price}
+          data-item-url={`/products/${product.id}`}
+          data-item-image={product}
+          data-item-name={product.fields.title}
+        >
+          Add to Cart
+        </button>
+      </div>
       {/* <div>img: {product.fields.attach[0].url}</div>
       <div>
         <Image
