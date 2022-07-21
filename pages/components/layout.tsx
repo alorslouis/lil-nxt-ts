@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Layout({ children }: any) {
   return (
     <>
-      <div className="container mx-auto min-h-max">
+      <div className="container flex flex-col mx-auto h-screen">
         <nav className="text-center py-4 ">
           <Link href="/">
             <h1 className="text-bold font-black text-4xl text-center cursor-pointer">
