@@ -90,7 +90,7 @@ const Home: NextPage<AirProps> = ({ recs }) => {
             products.records.map((record) => (
               <li key={record.id}>
                 <Link href={`/products/${record.id}`}>
-                  <div className="flex-col aspect-square cursor-pointer m-2 py-2  rounded-3xl hover:-translate-y-1 transition hover:ease-in-out hover:shadow-lg active:translate-y-1  active:ease-in-out active:shadow-lg">
+                  <div className="flex-col aspect-square cursor-pointer m-2 py-2  rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1   active:shadow-lg">
                     <Image
                       key={record.fields.attach[0].url}
                       src={record.fields.attach[0].url}
