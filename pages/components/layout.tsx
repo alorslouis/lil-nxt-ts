@@ -7,13 +7,16 @@ export default function Layout({ children }: any) {
     <>
       <Head>f</Head>
       <div className="container flex flex-col mx-auto h-screen">
-        <nav className="text-center py-4 ">
-          <Link href="/">
-            <h1 className="text-bold font-black text-4xl text-center cursor-pointer">
-              LILLIES
-            </h1>
-          </Link>
-          <p className="text-xs">BCN • LDN • SAN</p>
+        <nav className="text-center py-4 flex self-center ">
+          <div className="">
+            <Link href="/">
+              <h1 className="text-bold font-black text-4xl text-center cursor-pointer">
+                LILLIES
+              </h1>
+            </Link>
+            <p className="text-xs">BCN • LDN • SAN</p>
+          </div>
+          {/* <div className="justify-end">cart</div> */}
           {/* <hr /> */}
           {/* <div className="snipcart-checkout">cart</div>
           <span className="snipcart-items-count"></span>

@@ -25,6 +25,7 @@ export interface Fields {
   date: string;
   isActive: boolean;
   brand: string;
+  category: string;
   title: string;
   size: string;
   priceEur: number;
@@ -98,7 +99,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <div className="flex flex-col lg:flex-row">
-        <div>
+        <div className="flex flex-auto flex-col">
           {product.fields.attach &&
             product?.fields?.attach.map((attach) => (
               <Image
@@ -109,10 +110,11 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
               />
             ))}
         </div>
-        <div className="">
+        <div className="flex flex-auto flex-col self-center">
           test - record: {name}
           test - record: {product.fields.title}
           size: {product.fields.size}
+          category: {product.fields.category}
           test - record: {product.id}, {product.createdTime}
           test - price: €{product.fields.priceEur}
           {/* <div> */}
@@ -127,7 +129,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
             }
             data-item-name={product.fields.title}
           >
-            <span className="bg-black p-6">Add to Cart</span>
+            <span className="bg-black p-2 rounded-sm">Add to Cart</span>
           </button>
         </div>
       </div>
