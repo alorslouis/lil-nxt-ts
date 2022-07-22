@@ -99,10 +99,10 @@ const Home: NextPage<AirProps> = ({ recs }) => {
                       // layout="fill"
                     />
 
-                    <div className="font-bold text-lg">
+                    <div className="font-bold text-base">
                       {record.fields.title}
                     </div>
-                    <div>{record.fields.brand}</div>
+                    {/* <div>{record.fields.brand}</div> */}
                   </div>
 
                   {/* <div>{record.fields}</div> */}
@@ -112,12 +112,12 @@ const Home: NextPage<AirProps> = ({ recs }) => {
             ))}
         </ul>
 
-        <div className="flex-col flex-auto m-8 py-8 border-double border-neutral-900 border-4 rounded-md">
+        {/* <div className="flex-col flex-auto m-8 py-8 border-double border-neutral-900 border-4 rounded-md">
           <div>img</div>
           <div className="font-bold text-lg">product name</div>
           <div>product brand</div>
           <div className="font-thin">price</div>
-        </div>
+        </div> */}
 
         {/* <div>{products ? products.records[0].fields.date : "loading"}</div> */}
         {/* <div>{records ? records.length : "loading"}</div> */}

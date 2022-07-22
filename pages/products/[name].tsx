@@ -98,39 +98,54 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
 
   return (
     <>
-      <div className="flex flex-col lg:flex-row">
-        <div className="flex flex-auto flex-col">
-          {product.fields.attach &&
-            product?.fields?.attach.map((attach) => (
-              <Image
-                key={attach.url}
-                src={attach.url}
-                width={attach.width}
-                height={attach.height}
-              />
-            ))}
+      <div className="flex flex-col items-center lg:flex-row">
+        <div className="w-full md:w-3/5">
+          <div className="carousel rounded-box">
+            {/* <div className="flex flex-auto flex-col"> */}
+            {product.fields.attach &&
+              product?.fields?.attach.map((attach) => (
+                <div
+                  key={attach.url}
+                  className="carousel-item w-full self-center "
+                >
+                  <Image
+                    src={attach.url}
+                    width={attach.width}
+                    height={attach.height}
+                    className="w-full"
+                  />
+                </div>
+              ))}
+          </div>
+          {/* </div> */}
         </div>
-        <div className="flex flex-auto flex-col self-center">
-          test - record: {name}
-          test - record: {product.fields.title}
-          size: {product.fields.size}
+
+        <div className="self-center flex flex-auto">
+          <div className="flex flex-auto mx-auto p-4 flex-col self-center">
+            <div className="font-bold text-2xl">{product.fields.title}</div>
+            <div className="font-medium text-sm">{product.fields.brand}</div>
+            <div className="text-sm">size: {product.fields.size}</div>
+            <div className="font-thin">€{product.fields.priceEur}</div>
+            {/* test - record: {name} */}
+            {/* size: {product.fields.size}
           category: {product.fields.category}
           test - record: {product.id}, {product.createdTime}
-          test - price: €{product.fields.priceEur}
-          {/* <div> */}
-          <button
-            className="snipcart-add-item p-4 m-4 text-white"
-            data-item-id={product.id}
-            data-item-price={product.fields.priceEur}
-            data-item-url={`/products/${product.id}`}
-            data-item-image={
-              product.fields.attach &&
-              product.fields.attach[0].thumbnails.small.url
-            }
-            data-item-name={product.fields.title}
-          >
-            <span className="bg-black p-2 rounded-sm">Add to Cart</span>
-          </button>
+          test - price: €{product.fields.priceEur} */}
+            {/* <div> */}
+            <button
+              className="snipcart-add-item btn btn-primary p-4 m-4 bg-black text-white "
+              data-item-id={product.id}
+              data-item-price={product.fields.priceEur}
+              data-item-url={`/products/${product.id}`}
+              data-item-image={
+                product.fields.attach &&
+                product.fields.attach[0].thumbnails.small.url
+              }
+              data-item-name={product.fields.title}
+            >
+              +
+            </button>
+          </div>
         </div>
       </div>
       {/* </div> */}
