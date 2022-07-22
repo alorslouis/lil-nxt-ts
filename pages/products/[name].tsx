@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 
 // export interface AirRecords {
 //   records: Array<Record>;
@@ -108,12 +110,14 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
                   key={attach.url}
                   className="carousel-item w-full self-center "
                 >
-                  <Image
-                    src={attach.url}
-                    width={attach.width}
-                    height={attach.height}
-                    className="w-full"
-                  />
+                  <Zoom>
+                    <Image
+                      src={attach.url}
+                      width={attach.width}
+                      height={attach.height}
+                      className="w-full"
+                    />
+                  </Zoom>
                 </div>
               ))}
           </div>
