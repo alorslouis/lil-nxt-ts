@@ -113,6 +113,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
                   <Zoom>
                     <Image
                       src={attach.url}
+                      alt={product.fields.title}
                       width={attach.width}
                       height={attach.height}
                       className="w-full"

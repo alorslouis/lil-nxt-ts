@@ -10,6 +10,7 @@ export default function Document() {
           rel="stylesheet"
           href="https://cdn.snipcart.com/themes/v3.3.1/default/snipcart.css"
         />
+        <link type="text/css" href="/styles/snipDark.css" rel="stylesheet /" />
       </Head>
       <body>
         <Main />

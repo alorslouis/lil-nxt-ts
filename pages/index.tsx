@@ -91,13 +91,23 @@ const Home: NextPage<AirProps> = ({ recs }) => {
               <li key={record.id}>
                 <Link href={`/products/${record.id}`}>
                   <div className="flex-col aspect-square cursor-pointer m-2 py-2  rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1   active:shadow-lg">
-                    <Image
-                      key={record.fields.attach[0].url}
-                      src={record.fields.attach[0].url}
-                      width={record.fields.attach[0].width}
-                      height={record.fields.attach[0].height}
-                      // layout="fill"
-                    />
+                    {record?.fields?.attach ? (
+                      <Image
+                        key={record.fields.attach[0].url}
+                        src={record.fields.attach[0].url}
+                        width={record.fields.attach[0].width}
+                        height={record.fields.attach[0].height}
+                        // layout="fill"
+                      />
+                    ) : (
+                      <Image
+                        // key={}
+                        src="/lilsOg.png"
+                        width={700}
+                        height={400}
+                        // layout="fill"
+                      />
+                    )}
 
                     <div className="font-bold text-base">
                       {record.fields.title}
