@@ -144,7 +144,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
             data-item-url={`/products/${product.id}`}
             data-item-image={
               product.fields.attach &&
-              product.fields.attach[0].thumbnails.small.url
+              product.fields.attach[0].thumbnails.large.url
             }
             data-item-name={product.fields.title}
           >
