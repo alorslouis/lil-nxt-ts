@@ -85,19 +85,20 @@ const Home: NextPage<AirProps> = ({ recs }) => {
         </ul> */}
 
         {/* <div>{records[0].fields.brand}</div> */}
-        <ul className="grid grid-cols-2 gap-4">
+        <ul className="grid grid-cols-2 gap-4 ">
           {products &&
             products.records.map((record) => (
-              <li key={record.id}>
+              <li key={record.id} className="flex flex-grow">
                 <Link href={`/products/${record.id}`}>
-                  <div className="flex-col aspect-square cursor-pointer m-2 py-2  rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1   active:shadow-lg">
-                    {record?.fields?.attach ? (
+                  <div className="flex flex-col flex-1 cursor-pointer mx-2 mt-auto py-2 self-center  rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1   active:shadow-lg">
+                    {record.fields?.attach ? (
                       <Image
                         key={record.fields.attach[0].url}
+                        alt={record.fields.title}
                         src={record.fields.attach[0].url}
                         width={record.fields.attach[0].width}
                         height={record.fields.attach[0].height}
-                        // layout="fill"
+                        // layout="responsive"
                       />
                     ) : (
                       <Image
@@ -109,9 +110,9 @@ const Home: NextPage<AirProps> = ({ recs }) => {
                       />
                     )}
 
-                    <div className="font-bold text-base">
+                    <p className="font-thin text-base py-2 mt-auto lowercase">
                       {record.fields.title}
-                    </div>
+                    </p>
                     {/* <div>{record.fields.brand}</div> */}
                   </div>
 

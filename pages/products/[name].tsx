@@ -104,7 +104,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
         <div className="w-full lg:w-3/5">
           <div className="carousel rounded-box">
             {/* <div className="flex flex-auto flex-col"> */}
-            {product.fields.attach &&
+            {product?.fields?.attach &&
               product?.fields?.attach.map((attach) => (
                 <div
                   key={attach.url}
@@ -127,10 +127,14 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
 
         {/* <div className="self-center flex flex-auto gap-2"> */}
         <div className="flex flex-auto mx-auto p-4 flex-col self-center">
-          <div className="font-bold text-2xl">{product.fields.title}</div>
-          <div className="font-medium text-sm">– {product.fields.brand} –</div>
-          <div className="text-sm">size: {product.fields.size}</div>
-          <div className="font-thin">€{product.fields.priceEur}</div>
+          <div className="my-1 font-thin text-2xl lowercase">
+            {product.fields.title}
+          </div>
+          <div className="my-1 font-bold uppercase text-sm">
+            – {product.fields.brand} –
+          </div>
+          <div className="my-1 text-sm">size: {product.fields.size}</div>
+          <div className="my-1 font-thin">€{product.fields.priceEur}</div>
           {/* test - record: {name} */}
           {/* size: {product.fields.size}
           category: {product.fields.category}
@@ -143,8 +147,8 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
             data-item-price={product.fields.priceEur}
             data-item-url={`/products/${product.id}`}
             data-item-image={
-              product.fields.attach &&
-              product.fields.attach[0].thumbnails.large.url
+              product?.fields?.attach &&
+              product?.fields?.attach[0]?.thumbnails?.large?.url
             }
             data-item-name={product.fields.title}
           >

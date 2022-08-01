@@ -70,7 +70,7 @@ export default function Layout({ children, pageTitle }: any) {
               </button>
             </Link>
             <Link href="/">
-              <button>
+              <button className="hover:-translate-y-1 transition-transform ease-in-out">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -90,7 +90,7 @@ export default function Layout({ children, pageTitle }: any) {
             </Link>
 
             <div className="indictor flex flex-row">
-              <button className="snipcart-checkout">
+              <button className="snipcart-checkout hover:-translate-y-1 transition-transform ease-in-out">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
