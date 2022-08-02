@@ -39,6 +39,8 @@ interface AirProps {
   };
 }
 
+// function to return unqiue values from a nested object array
+
 export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch(
     `https://api.airtable.com/v0/${process.env.base_id}/products/?api_key=${process.env.api_key}`
@@ -98,7 +100,7 @@ const Home: NextPage<AirProps> = ({ recs }) => {
                         src={record.fields.attach[0].url}
                         width={record.fields.attach[0].width}
                         height={record.fields.attach[0].height}
-                        // layout="responsive"
+                        layout="responsive"
                       />
                     ) : (
                       <Image

@@ -31,6 +31,7 @@ export interface Fields {
   title: string;
   size: string;
   priceEur: number;
+  description: string;
   attach: Attachment[];
 }
 
@@ -60,6 +61,12 @@ export interface Attachment {
     };
   };
 }
+
+// const which returns x if in dev mode, y if in prod mode
+const devOrProd = (x: string, y: string) =>
+  process.env.NODE_ENV === "development" ? x : y;
+
+const siteUrl = devOrProd("localhost:3000", "https://lillies.vercel.app");
 
 export async function getStaticPaths() {
   // Call an external API endpoint to get posts
@@ -98,6 +105,8 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
 
   const product: Record = post;
 
+  // console.log(`${siteUrl}/products/${product.id}`);
+
   return (
     <>
       <div className="flex flex-col items-center lg:flex-row">
@@ -126,14 +135,16 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
         </div>
 
         {/* <div className="self-center flex flex-auto gap-2"> */}
-        <div className="flex flex-auto mx-auto p-4 flex-col self-center">
+        <div className="flex flex-auto mx-auto p-4 flex-col self-center items-center md:w-2/5">
           <div className="my-1 font-thin text-2xl lowercase">
             {product.fields.title}
           </div>
           <div className="my-1 font-bold uppercase text-sm">
             – {product.fields.brand} –
           </div>
-          <div className="my-1 text-sm">size: {product.fields.size}</div>
+          <div className="my-1 text-sm font-thin">
+            size: {product.fields.size}
+          </div>
           <div className="my-1 font-thin">€{product.fields.priceEur}</div>
           {/* test - record: {name} */}
           {/* size: {product.fields.size}
@@ -142,10 +153,10 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
           test - price: €{product.fields.priceEur} */}
           {/* <div> */}
           <button
-            className="snipcart-add-item btn btn-primary p-4 m-4 bg-black text-white "
+            className="snipcart-add-item btn btn-primary p-4 m-4 bg-black text-white w-2/3"
             data-item-id={product.id}
             data-item-price={product.fields.priceEur}
-            data-item-url={`/products/${product.id}`}
+            data-item-url={`${siteUrl}/products/${product.id}`}
             data-item-image={
               product?.fields?.attach &&
               product?.fields?.attach[0]?.thumbnails?.large?.url
@@ -154,6 +165,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
           >
             +
           </button>
+          <p className="p-2 my-2 font-thin">{product.fields.description}</p>
         </div>
       </div>
       {/* </div> */}
