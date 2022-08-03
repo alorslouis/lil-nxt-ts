@@ -1,6 +1,6 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { useRouter } from "next/router";
-import { Record } from "../[name]";
+import { Record, AirRecords } from "../[name]";
 
 export async function getStaticPaths() {
   // Call an external API endpoint to get posts
@@ -20,11 +20,11 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const route = params?.name;
+  const route = params?.category;
   const res = await fetch(
-    `https://api.airtable.com/v0/${process.env.base_id}/products?filterByFormula=AND(({category}="jeans"))&api_key=${process.env.api_key}`
+    `https://api.airtable.com/v0/${process.env.base_id}/products?filterByFormula=AND(({category}="${route}"))&api_key=${process.env.api_key}`
   );
-  const post = (await res.json()) as Record;
+  const post = (await res.json()) as AirRecords;
 
   return {
     props: {
@@ -37,12 +37,19 @@ function Category({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter();
   const { category } = router.query;
 
-  console.log(post);
+  // console.log(post.records[0]);
+  // console.log(category);
 
-  const product: Record[] = post;
+  const product: AirRecords = post;
   return (
     <>
       <h1>{category}test</h1>
+      {/* {product.records.map((prod) =>
+        // <div key={prod.record.id}>test</div>
+        {
+          <div key={prod.record.id}>test</div>;
+        }
+      )} */}
     </>
   );
 }
