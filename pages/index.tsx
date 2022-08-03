@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import styles from "../styles/Home.module.css";
 import type { Record, AirRecords } from "./products/[name]";
 
-interface AirProps {
+export interface AirProps {
   recs: {
     records: Record[];
   };
@@ -60,7 +60,7 @@ const Home: NextPage<AirProps> = ({ recs }) => {
         </ul> */}
 
         {/* <div>{records[0].fields.brand}</div> */}
-        <ul className="grid grid-cols-2 gap-4 ">
+        <ul className="grid grid-cols-2 gap-4 p-2">
           {products &&
             products.records.map((record) => (
               <li key={record.id} className="flex flex-grow">

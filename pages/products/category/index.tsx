@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import Link from "next/link";
 
-const categories = ["all", "shirts", "jeans", "jacket", "accessories"];
+const categories = ["jeans", "jacket"];
 
 const Categories: NextPage = () => {
   return (
