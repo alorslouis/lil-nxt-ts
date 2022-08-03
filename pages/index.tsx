@@ -6,33 +6,6 @@ import { useEffect } from "react";
 import styles from "../styles/Home.module.css";
 import type { Record, AirRecords } from "./products/[name]";
 
-const dummy = {
-  records: [
-    {
-      id: "recL5Yp4djMfD0FMA",
-      createdTime: "2022-07-16T22:58:24.000Z",
-      fields: {
-        date: "2022-06-10",
-        isActive: true,
-        brand: "levis",
-        title: "test",
-        size: "34",
-      },
-    },
-    {
-      id: "recXjDYbg6IEuAoMq",
-      createdTime: "2022-07-16T23:05:00.000Z",
-      fields: {
-        date: "2022-06-10",
-        isActive: true,
-        brand: "levis",
-        title: "testte",
-        size: "34",
-      },
-    },
-  ],
-};
-
 interface AirProps {
   recs: {
     records: Record[];

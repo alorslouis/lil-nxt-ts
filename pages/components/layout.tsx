@@ -54,7 +54,7 @@ export default function Layout({ children, pageTitle }: any) {
               <button className="active hover:-translate-y-1 transition-transform ease-in-out">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
+                  className="h-5 w-5  hover:stroke-amber-500"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -69,11 +69,31 @@ export default function Layout({ children, pageTitle }: any) {
                 {/* <span className="btm-nav-label">about</span> */}
               </button>
             </Link>
+            <Link href="/products/category">
+              <button className="active hover:-translate-y-1 transition-transform ease-in-out">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="feather feather-tag hover:stroke-amber-500"
+                >
+                  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                  <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                </svg>
+                {/* <span className="btm-nav-label">about</span> */}
+              </button>
+            </Link>
             <Link href="/">
               <button className="hover:-translate-y-1 transition-transform ease-in-out">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
+                  className="h-5 w-5  hover:stroke-amber-500"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -84,6 +104,31 @@ export default function Layout({ children, pageTitle }: any) {
                     strokeWidth="2"
                     d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
                   />
+                </svg>
+                {/* <span className="btm-nav-label">home</span> */}
+              </button>
+            </Link>
+
+            <Link href="/">
+              <button className="hover:-translate-y-1 transition-transform ease-in-out">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="feather feather-list hover:stroke-amber-500"
+                >
+                  <line x1="8" y1="6" x2="21" y2="6"></line>
+                  <line x1="8" y1="12" x2="21" y2="12"></line>
+                  <line x1="8" y1="18" x2="21" y2="18"></line>
+                  <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                  <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                  <line x1="3" y1="18" x2="3.01" y2="18"></line>
                 </svg>
                 {/* <span className="btm-nav-label">home</span> */}
               </button>
@@ -101,7 +146,7 @@ export default function Layout({ children, pageTitle }: any) {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="feather feather-shopping-bag"
+                  className="feather feather-shopping-bag  hover:stroke-amber-500"
                 >
                   <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
                   <line x1="3" y1="6" x2="21" y2="6"></line>

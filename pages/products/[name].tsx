@@ -111,13 +111,13 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
     <>
       <div className="flex flex-col items-center lg:flex-row">
         <div className="w-full lg:w-3/5">
-          <div className="carousel rounded-box">
+          <div className="carousel rounded-box w-full">
             {/* <div className="flex flex-auto flex-col"> */}
             {product?.fields?.attach &&
               product?.fields?.attach.map((attach) => (
                 <div
                   key={attach.url}
-                  className="carousel-item w-full self-center "
+                  className="carousel-item w-full self-center cursor-all-scroll"
                 >
                   <Zoom>
                     <Image
@@ -131,6 +131,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
                 </div>
               ))}
           </div>
+
           {/* </div> */}
         </div>
 
