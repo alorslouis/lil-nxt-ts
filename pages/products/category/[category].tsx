@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { AirProps } from "../..";
 import { Record, AirRecords } from "../[name]";
+import Image from "next/image";
 
 export async function getStaticPaths() {
   // Call an external API endpoint to get posts
@@ -47,12 +48,36 @@ const Category: NextPage<AirProps> = ({ recs }) => {
   // console.log(product);
   return (
     <>
-      <h1 className="text-xl font-semibold">{category}</h1>
+      <Link href={"/products/category"}>
+        <h1 className="text-xl font-semibold">{category}</h1>
+      </Link>
       <ul className="grid grid-cols-2 gap-4 p-2">
         {product.records.map((prod) => (
-          <li key={prod.id}>
+          <li key={prod.id} className="flex flex-grow">
             <Link href={`/products/${prod.id}`}>
-              <div>{prod.fields.title}</div>
+              <div className="flex flex-col flex-1 cursor-pointer mx-2 mt-auto py-2 self-center  rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1   active:shadow-lg">
+                <div>
+                  {prod.fields?.attach ? (
+                    <Image
+                      key={prod.fields.attach[0].url}
+                      alt={prod.fields.title}
+                      src={prod.fields.attach[0].url}
+                      width={prod.fields.attach[0].width}
+                      height={prod.fields.attach[0].height}
+                      layout="responsive"
+                    />
+                  ) : (
+                    <Image
+                      // key={}
+                      src="/lilsOg.png"
+                      width={700}
+                      height={400}
+                      // layout="fill"
+                    />
+                  )}
+                </div>
+                <div>{prod.fields.title}</div>
+              </div>
             </Link>
           </li>
         ))}

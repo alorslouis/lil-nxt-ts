@@ -20,6 +20,7 @@ export default function Document() {
         <Main />
         <NextScript />
         <script
+          async
           dangerouslySetInnerHTML={{
             __html: `
             window.SnipcartSettings = {
