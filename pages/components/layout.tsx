@@ -134,7 +134,9 @@ export default function Layout({ children, pageTitle }: any) {
               </button>
             </Link>
 
-            <div className="indictor flex flex-row">
+            <div className="indicator">
+              {/* <span className="indicator-item badge badge-secondary">99</span> */}
+
               <button className="snipcart-checkout hover:-translate-y-1 transition-transform ease-in-out">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

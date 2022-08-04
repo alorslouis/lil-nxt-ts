@@ -65,7 +65,7 @@ const Home: NextPage<AirProps> = ({ recs }) => {
             products.records.map((record) => (
               <li key={record.id} className="flex flex-grow">
                 <Link href={`/products/${record.id}`}>
-                  <div className="flex flex-col flex-1 cursor-pointer mx-2 mt-auto py-2 self-center  rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1   active:shadow-lg">
+                  <div className="flex flex-col flex-1 cursor-pointer mx-2 mt-auto py-2 self-center rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1 active:shadow-lg">
                     <div>
                       {record.fields?.attach ? (
                         <Image
@@ -79,7 +79,7 @@ const Home: NextPage<AirProps> = ({ recs }) => {
                       ) : (
                         <Image
                           // key={}
-                          src="/lilsOg.png"
+                          src={"/lilsOg.png"}
                           width={700}
                           height={400}
                           // layout="fill"
