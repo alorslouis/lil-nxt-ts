@@ -87,7 +87,7 @@ const Home: NextPage<AirProps> = ({ recs }) => {
                       )}
                     </div>
 
-                    <p className="font-thin text-base py-2 mt-auto lowercase">
+                    <p className="font-thin text-base py-6 mt-auto lowercase">
                       {record.fields.title}
                     </p>
                     {/* <div>{record.fields.brand}</div> */}

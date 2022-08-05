@@ -76,7 +76,9 @@ const Category: NextPage<AirProps> = ({ recs }) => {
                     />
                   )}
                 </div>
-                <div>{prod.fields.title}</div>
+                <p className="font-thin text-base py-6 mt-auto lowercase">
+                  {prod.fields.title}
+                </p>
               </div>
             </Link>
           </li>
