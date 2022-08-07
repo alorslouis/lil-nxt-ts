@@ -1,21 +1,32 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
 
 export default function Document() {
   return (
     <Html>
       <Head>
-        <link rel="preconnect" href="https://app.snipcart.com" />
-        <link rel="preconnect" href="https://cdn.snipcart.com" />
-        <link
+        <Script
+          strategy="lazyOnload"
+          rel="preconnect"
+          src="https://app.snipcart.com"
+        />
+        <Script
+          strategy="lazyOnload"
+          rel="preconnect"
+          src="https://cdn.snipcart.com"
+        />
+        <Script
           rel="stylesheet"
-          href="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.css"
+          strategy="lazyOnload"
+          src="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.css"
         />
       </Head>
       <body>
         <Main />
         <NextScript />
-        <script
-          async
+        <Script
+          id="snipcart-settings"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
             window.SnipcartSettings = {

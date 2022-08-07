@@ -6,7 +6,7 @@ function About() {
       <div className="items-center my-10">
         <div className="font-semibold text-lg">hecho en barcelona</div>
         <div>par hamez</div>
-        <div className="p-8 m-8 rounded-lg border border-white">
+        <div className="p-8 m-8 rounded-lg border-2">
           <Image
             src={"/IMG_8860.jpeg"}
             width={100}
