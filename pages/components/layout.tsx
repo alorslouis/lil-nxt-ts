@@ -109,7 +109,7 @@ export default function Layout({ children, pageTitle }: any) {
               </button>
             </Link>
 
-            <Link href="/">
+            <Link href="/products">
               <button className="hover:-translate-y-1 transition-transform ease-in-out">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
