@@ -5,28 +5,19 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <Script
-          strategy="lazyOnload"
-          rel="preconnect"
-          src="https://app.snipcart.com"
-        />
-        <Script
-          strategy="lazyOnload"
-          rel="preconnect"
-          src="https://cdn.snipcart.com"
-        />
-        <Script
+        {/* <link rel="preconnect" href="https://app.snipcart.com" /> */}
+        {/* <link rel="preconnect" href="https://cdn.snipcart.com" /> */}
+        {/* <link
           rel="stylesheet"
-          strategy="lazyOnload"
-          src="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.css"
-        />
+          href="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.css"
+        /> */}
+        {/* <Script src="/snip.css" /> */}
       </Head>
       <body>
         <Main />
         <NextScript />
-        <Script
-          id="snipcart-settings"
-          strategy="afterInteractive"
+        <script
+          async
           dangerouslySetInnerHTML={{
             __html: `
             window.SnipcartSettings = {

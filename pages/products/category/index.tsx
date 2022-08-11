@@ -11,7 +11,7 @@ const Categories: NextPage = () => {
         {categories.map((category) => (
           <li key={category}>
             <Link href={`/products/category/${category}`}>
-              <p>{category}</p>
+              <p className="cursor-pointer">{category}</p>
             </Link>
           </li>
         ))}
