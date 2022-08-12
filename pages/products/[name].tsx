@@ -110,7 +110,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <div className="flex flex-col items-center lg:flex-row">
-        <div className="w-full lg:w-3/5">
+        <div className="w-1/2 md:w-2/5 ">
           <div className="carousel rounded-box w-full">
             {/* <div className="flex flex-auto flex-col"> */}
             {product?.fields?.attach &&
@@ -136,7 +136,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
         </div>
 
         {/* <div className="self-center flex flex-auto gap-2"> */}
-        <div className="flex flex-auto mx-auto p-4 flex-col self-center items-center md:w-2/5">
+        <div className="flex flex-auto mx-auto p-8 flex-col self-center items-center md:w-2/5">
           <div className="my-1 font-thin text-2xl lowercase">
             {product.fields.title}
           </div>

@@ -49,7 +49,7 @@ const Category: NextPage<AirProps> = ({ recs }) => {
   return (
     <>
       <Link href={"/products/category"}>
-        <h1 className="text-xl font-semibold">{category}</h1>
+        <h1 className="text-xl font-extralight">{category}</h1>
       </Link>
       <ul className="grid grid-cols-2 gap-4 p-2">
         {product.records.map((prod) => (

@@ -6,12 +6,12 @@ const categories = ["jeans", "jacket"];
 const Categories: NextPage = () => {
   return (
     <div>
-      <h1 className="text-xl font-semibold">categories</h1>
+      <h1 className="text-xl font-extralight">categories</h1>
       <ul className="grid md:grid-cols-2 p-6 my-4 mx-auto gap-2">
         {categories.map((category) => (
           <li key={category}>
             <Link href={`/products/category/${category}`}>
-              <p className="cursor-pointer">{category}</p>
+              <p className="cursor-pointer font-thin">{category}</p>
             </Link>
           </li>
         ))}

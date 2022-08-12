@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import styles from "../styles/Home.module.css";
 import type { Record, AirRecords } from "./products/[name]";
+import heroImage from "../public/IMG_8603-PhotoRoom.png";
 
 export interface AirProps {
   recs: {
@@ -60,7 +61,15 @@ const Home: NextPage<AirProps> = ({ recs }) => {
         </ul> */}
 
         {/* <div>{records[0].fields.brand}</div> */}
-        <h1>LANDING PAGE PLACEHOLDER</h1>
+        <h1 className="font-thin">LANDING PAGE PLACEHOLDER</h1>
+        <div className="w-3/5 md:w-2/5 items-center mx-auto">
+          <Image src={heroImage} layout="intrinsic" />
+        </div>
+        <Link href="/products">
+          <button className="py-4 px-8 m-4 rounded-md border-2 hover:border-black">
+            products
+          </button>
+        </Link>
       </div>
     </>
   );
