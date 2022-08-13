@@ -40,7 +40,7 @@ function ProdCard(rec: Record) {
   );
 }
 
-const Home: NextPage<AirProps> = ({ recs }) => {
+const Home: NextPage<AirProps> = () => {
   // const products = recs;
   // console.log(products);
   // console.log(products.records[0]);

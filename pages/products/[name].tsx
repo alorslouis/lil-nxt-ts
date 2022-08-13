@@ -158,7 +158,8 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
             className="snipcart-add-item btn btn-primary p-4 m-4 bg-black text-white w-2/3"
             data-item-id={product.id}
             data-item-price={product.fields.priceEur}
-            data-item-url={`${siteUrl}/products/${product.id}`}
+            // data-item-url={`${siteUrl}/products/${product.id}`}
+            data-item-url={"api/products"}
             data-item-image={
               product?.fields?.attach &&
               product?.fields?.attach[0]?.thumbnails?.large?.url
