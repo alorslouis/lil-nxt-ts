@@ -20,6 +20,8 @@ export const getStaticProps: GetStaticProps = async () => {
 const Product: NextPage<AirProps> = ({ recs }) => {
   const products = recs;
 
+  // console.log(products);
+
   return (
     <div>
       <ul className="grid grid-cols-2 lg:grid-cols-3 gap-4 p-2 mx-auto max-w-screen-md">

@@ -4,11 +4,10 @@ import { AirRecords, Record } from "../products/[name]";
 
 // get products
 const getProducts = async () => {
-  const data = await fetch(
+  const res = await fetch(
     `https://api.airtable.com/v0/${process.env.base_id}/products/?api_key=${process.env.api_key}`
   );
-
-  const recs = (await data.json()) as AirRecords;
+  const recs = await res.json();
 
   return {
     recs,
@@ -18,8 +17,14 @@ const getProducts = async () => {
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const response = await getProducts();
 
-  const products: Record[] = response.recs.records.map((product) => {
-    return product.record;
+  const products = response.recs.records.map((record: Record) => {
+    return {
+      name: record.fields.title,
+      price: record.fields.priceEur,
+      description: record.fields.description,
+      image: record.fields.attach[0].url,
+      inventory: record.fields.inventory,
+    };
   });
 
   res.status(200).json(products);

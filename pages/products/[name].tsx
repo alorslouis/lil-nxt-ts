@@ -31,6 +31,7 @@ export interface Fields {
   title: string;
   size: string;
   priceEur: number;
+  inventory: number;
   description: string;
   attach: Attachment[];
 }
