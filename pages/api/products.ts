@@ -20,6 +20,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const products = response.recs.records.map((record: Record) => {
     return {
       name: record.fields.title,
+      id: record.id,
       price: record.fields.priceEur,
       description: record.fields.description,
       image: record.fields.attach[0].url,
