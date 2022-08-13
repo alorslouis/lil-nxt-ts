@@ -29,6 +29,7 @@ export interface Fields {
   brand: string;
   category: string;
   title: string;
+  route: string;
   size: string;
   priceEur: number;
   inventory: number;
@@ -78,7 +79,7 @@ export async function getStaticPaths() {
 
   // Get the paths we want to pre-render based on posts
   const paths = posts.records.map((post: Record) => ({
-    params: { name: post.id },
+    params: { name: post.fields.route },
   }));
 
   // We'll pre-render only these paths at build time.
@@ -89,7 +90,7 @@ export async function getStaticPaths() {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const route = params?.name;
   const res = await fetch(
-    `https://api.airtable.com/v0/${process.env.base_id}/products/${route}/?api_key=${process.env.api_key}`
+    `https://api.airtable.com/v0/${process.env.base_id}/products?filterByFormula=AND(({route}="${route}"))&api_key=${process.env.api_key}`
   );
   const post = (await res.json()) as Record;
 
@@ -104,9 +105,10 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter();
   const { name } = router.query;
 
-  const product: Record = post;
+  const product: Record = post.records[0];
 
   // console.log(`${siteUrl}/products/${product.id}`);
+  console.log(product);
 
   return (
     <>
@@ -114,6 +116,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
         <div className="w-1/2 md:w-2/5 ">
           <div className="carousel rounded-box w-full">
             {/* <div className="flex flex-auto flex-col"> */}
+            {/* {product[0].fields.title} */}
             {product?.fields?.attach &&
               product?.fields?.attach.map((attach) => (
                 <div
@@ -139,7 +142,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
         {/* <div className="self-center flex flex-auto gap-2"> */}
         <div className="flex flex-auto mx-auto p-8 flex-col self-center items-center md:w-2/5">
           <div className="my-1 font-thin text-2xl lowercase">
-            {product.fields.title}
+            {product?.fields?.title}
           </div>
           <div className="my-1 font-bold uppercase text-sm">
             – {product.fields.brand} –

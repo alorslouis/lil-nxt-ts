@@ -28,7 +28,7 @@ const Product: NextPage<AirProps> = ({ recs }) => {
         {products &&
           products.records.map((record) => (
             <li key={record.id} className="flex flex-grow ">
-              <Link href={`/products/${record.id}`}>
+              <Link href={`/products/${record.fields.route}`}>
                 <div className="flex flex-col flex-1 cursor-pointer mx-8 mt-auto p-2 self-center rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1 active:shadow-lg">
                   <div>
                     {record.fields?.attach ? (
@@ -54,11 +54,7 @@ const Product: NextPage<AirProps> = ({ recs }) => {
                   <p className="font-thin text-base py-6 mt-auto lowercase">
                     {record.fields.title}
                   </p>
-                  {/* <div>{record.fields.brand}</div> */}
                 </div>
-
-                {/* <div>{record.fields}</div> */}
-                {/* <div className="font-thin">price</div> */}
               </Link>
             </li>
           ))}

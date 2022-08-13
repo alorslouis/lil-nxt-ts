@@ -21,10 +21,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return {
       name: record.fields.title,
       id: record.id,
+      // id: product.fields.title.replace(/\s+/g, "-").toLowerCase(),
       price: record.fields.priceEur,
       description: record.fields.description,
       image: record.fields.attach[0].url,
-      inventory: record.fields.inventory,
+      stock: record.fields.inventory,
     };
   });
 
