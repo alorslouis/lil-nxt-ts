@@ -108,12 +108,12 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   const product: Record = post.records[0];
 
   // console.log(`${siteUrl}/products/${product.id}`);
-  console.log(product);
+  // console.log(product);
 
   return (
     <>
-      <div className="flex flex-col items-center lg:flex-row">
-        <div className="w-1/2 md:w-2/5 ">
+      <div className="flex flex-col items-center lg:flex-row mx-4 my-8">
+        <div className="w-2/3 lg:w-2/5 ">
           <div className="carousel rounded-box w-full">
             {/* <div className="flex flex-auto flex-col"> */}
             {/* {product[0].fields.title} */}
@@ -130,6 +130,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
                       width={attach.width}
                       height={attach.height}
                       className="w-full"
+                      unoptimized
                     />
                   </Zoom>
                 </div>
@@ -171,7 +172,9 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
           >
             +
           </button>
-          <p className="p-2 my-2 font-thin">{product.fields.description}</p>
+          <p className="p-2 my-2 font-thin font-serif">
+            {product.fields.description}
+          </p>
         </div>
       </div>
       {/* </div> */}

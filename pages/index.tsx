@@ -62,11 +62,23 @@ const Home: NextPage<AirProps> = () => {
 
         {/* <div>{records[0].fields.brand}</div> */}
         <h1 className="font-thin">LANDING PAGE PLACEHOLDER</h1>
-        <div className="w-3/5 md:w-2/5 items-center mx-auto">
+        <div className="items-center justify-center mx-auto my-12 flex flex-col md:flex-row">
+          <Image src={heroImage} layout="intrinsic" />
+          <Image src={heroImage} layout="intrinsic" />
           <Image src={heroImage} layout="intrinsic" />
         </div>
         <Link href="/products">
-          <button className="py-4 px-8 m-4 rounded-md border-2 hover:border-black">
+          <button className="py-4 px-8 m-4 mb-auto rounded-md border-2 hover:border-black">
+            products
+          </button>
+        </Link>
+        <div className="items-center justify-center mx-auto my-12 flex flex-col md:flex-row">
+          <Image src={heroImage} layout="intrinsic" />
+          <Image src={heroImage} layout="intrinsic" />
+          <Image src={heroImage} layout="intrinsic" />
+        </div>
+        <Link href="/products">
+          <button className="py-4 px-8 m-4 mb-auto rounded-md border-2 hover:border-black">
             products
           </button>
         </Link>
