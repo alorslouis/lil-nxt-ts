@@ -54,7 +54,7 @@ const Category: NextPage<AirProps> = ({ recs }) => {
       <ul className="grid grid-cols-2 gap-4 p-2">
         {product.records.map((prod) => (
           <li key={prod.id} className="flex flex-grow">
-            <Link href={`/products/${prod.id}`}>
+            <Link href={`/products/${prod.fields.route}`}>
               <div className="flex flex-col flex-1 cursor-pointer mx-2 mt-auto py-2 self-center rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1   active:shadow-lg">
                 <div>
                   {prod.fields?.attach ? (
