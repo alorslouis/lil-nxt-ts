@@ -28,18 +28,6 @@ export interface AirProps {
 //   };
 // };
 
-function ProdCard(rec: Record) {
-  return (
-    <div className="flex-col flex-auto m-8 py-8 border-double border-neutral-900 border-4 rounded-md">
-      <div>img</div>
-      <div className="font-bold text-lg">product name</div>
-      <div>product brand</div>
-      <div className="font-thin">price</div>
-      {rec.id}
-    </div>
-  );
-}
-
 const Home: NextPage<AirProps> = () => {
   // const products = recs;
   // console.log(products);
