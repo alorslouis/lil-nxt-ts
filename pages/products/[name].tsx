@@ -17,6 +17,14 @@ export interface AirRecords {
   }>;
 }
 
+export interface AirRecord {
+  records: Array<{
+    id: string;
+    createdTime: string;
+    fields: Fields;
+  }>;
+}
+
 export interface Record {
   id: string;
   createdTime: string;
