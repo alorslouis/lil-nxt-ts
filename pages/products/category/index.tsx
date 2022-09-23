@@ -1,17 +1,31 @@
 import { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
-import { AirRecord, Record } from "../[name]";
+import Image from "next/image";
+import { AirRecord, AirRecords, Record } from "../[name]";
 
 const categories = ["jeans", "jacket"];
+
+interface Records {
+  records: Record[];
+}
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const route = params?.category;
   const res = await fetch(
     `https://api.airtable.com/v0/${process.env.base_id}/products/?api_key=${process.env.api_key}`
   );
-  const recs = (await res.json()) as AirRecord;
+  const recs = (await res.json()) as Records;
 
-  const cats = uniqueOnly(recs.records.map((r) => r.fields.category));
+  const ca = new Set<Record>();
+
+  for (let i = 0; i < recs.records.length; i++) {
+    ca.add(recs.records[i]);
+  }
+
+  // for (let i = 0; i < recs.records.le; i++) {}
+
+  // // const cats = uniqueOnly(recs.records);
+  // console.log(cats);
 
   // const cats = uniqueOnly(cat);
 
@@ -25,46 +39,61 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       recs,
-      cats,
+      // cats,
     },
   };
 };
 
-// function to return only unqiue values from an array
-
-// function returnUnique(arr: string[]) {
-//   return [...new Set(arr)];
+// interface Props {
+//   cats: string[];
 // }
+interface Props {
+  recs: Records;
+}
 
-function uniqueOnly<Type>(e: Type[]): Type[] {
-  const f: Type[] = [];
-
-  e.forEach((e) => {
-    if (f.indexOf(e) === -1) {
-      f.push(e);
+function ReturnUnique(arr: Records) {
+  let matched: string[] = [];
+  let unique: Record[] = [];
+  arr.records.forEach((e) => {
+    if (!matched.includes(e.fields.category)) {
+      matched.push(e.fields.category);
+      unique.push(e);
     }
   });
-
-  // for (let i = 0; i < e.length; i++) {
-  //   if (f.indexOf(e[i]) === -1) {
-  //     f.push(e[i]);
-  //   }
-  // }
-  return f;
+  return unique;
 }
 
-// function uniqueSet<Type>(arr: ) {
+const Categories: NextPage<Props> = ({ recs }) => {
+  console.log(recs);
 
-// }
+  const qq = ReturnUnique(recs);
+  console.log(qq);
 
-interface Props {
-  cats: string[];
-}
-
-const Categories: NextPage<Props> = ({ cats }) => {
   return (
     <div>
       <h1 className="text-xl font-extralight">categories</h1>
+      <ul className="grid md:grid-cols-2 p-6 my-4 mx-auto gap-2 text-center">
+        {qq.map((r) => (
+          <li key={r.id} className="flex flex-grow justify-center">
+            <Link href={`/products/category/${r.fields.category}`}>
+              <div className="flex flex-col flex-1 cursor-pointer mx-2 flex-grow py-2 self-center rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1   active:shadow-lg">
+                <Image
+                  key={r.fields.attach[0].url}
+                  alt={r.fields.title}
+                  src={r.fields.attach[0].url}
+                  width={r.fields.attach[0].width}
+                  height={r.fields.attach[0].height}
+                  layout="responsive"
+                  unoptimized
+                />
+                <p className="cursor-pointer font-thin text-center">
+                  {r.fields.category}
+                </p>
+              </div>
+            </Link>
+          </li>
+        ))}
+      </ul>
       {/* <ul className="grid md:grid-cols-2 p-6 my-4 mx-auto gap-2">
         {categories.map((category) => (
           <li key={category}>
@@ -74,7 +103,7 @@ const Categories: NextPage<Props> = ({ cats }) => {
           </li>
         ))}
       </ul> */}
-      <ul className="grid md:grid-cols-2 p-6 my-4 mx-auto gap-2">
+      {/* <ul className="grid md:grid-cols-2 p-6 my-4 mx-auto gap-2">
         {cats.map((category: string) => (
           <li key={category}>
             <Link href={`/products/category/${category}`}>
@@ -82,7 +111,7 @@ const Categories: NextPage<Props> = ({ cats }) => {
             </Link>
           </li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 };
