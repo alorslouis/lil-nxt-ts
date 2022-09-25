@@ -1,14 +1,32 @@
+import { GetStaticProps } from "next";
 import Image from "next/image";
+import { Re, SectionProps } from ".";
 
-function About() {
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await fetch(
+    `https://api.airtable.com/v0/${process.env.base_id}/Sections/?filterByFormula=AND(({location}="about"))&api_key=${process.env.api_key}`
+  );
+  // const records = (await res.json()) as Record[];
+  const rea = await res.json();
+
+  return {
+    props: {
+      rea,
+    },
+  };
+};
+
+function About({ rea }: SectionProps) {
+  console.log(rea.records[0]);
+  const about = rea.records[0];
   return (
     <>
       <div className="items-center my-10">
-        <div className="font-semibold text-lg">hecho en barcelona</div>
-        <div>por hamez</div>
+        <div className="font-semibold text-lg">{about.fields.Title}</div>
+        <div>{about.fields.Caption}</div>
         <div className="p-8 m-8 rounded-lg border-2">
           <Image
-            src={"/IMG_8860.jpeg"}
+            src={about?.fields?.Images[0]?.url}
             width={100}
             height={100}
             layout={"responsive"}
