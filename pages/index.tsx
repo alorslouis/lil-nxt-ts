@@ -79,8 +79,7 @@ const Home: NextPage<PageProps> = ({ rea }) => {
                 <div className="items-center justify-center gap-8 mx-auto my-12 flex flex-col md:flex-row">
                   {record.fields.Images.map((img) => {
                     return (
-                      <div key={img.id} className="w-1/4">
-                        <p>x</p>
+                      <div key={img.id} className="w-3/4 md:w/1/3">
                         <Image
                           src={img.url}
                           alt="hero"
@@ -92,7 +91,11 @@ const Home: NextPage<PageProps> = ({ rea }) => {
                     );
                   })}
                 </div>
-                <div>{record.fields.Caption}</div>
+                <button className="p-4 my-2 border-black border-2 rounded-md dark:border-gray-200 hover:border-opacity-20 transition-all ease-in-out ">
+                  <Link href={record.fields.linkTo}>
+                    {record.fields.Caption}
+                  </Link>
+                </button>
               </div>
             );
           })}
