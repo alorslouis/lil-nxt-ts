@@ -4,10 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 import styles from "../styles/Home.module.css";
-import type { AirRecords, Attachment } from "./products/[name]";
-import heroImage from "../public/IMG_8603-PhotoRoom.png";
 
-export interface Record {
+import heroImage from "../public/IMG_8603-PhotoRoom.png";
+import { Attachment } from "./products/[name]";
+
+export interface Re {
   id: string;
   createdTime: string;
   fields: Fields;
@@ -25,33 +26,34 @@ export const getStaticProps: GetStaticProps = async () => {
     `https://api.airtable.com/v0/${process.env.base_id}/Sections/?api_key=${process.env.api_key}`
   );
   // const records = (await res.json()) as Record[];
-  const records = await res.json();
+  const rea = await res.json();
 
   return {
     props: {
-      records,
+      rea,
     },
   };
 };
 
 interface PageProps {
-  records: {
-    record: Record;
-  }[];
+  rea: {
+    records: Re[];
+  };
 }
 
-const Home: NextPage<PageProps> = ({ records }) => {
+const Home: NextPage<PageProps> = ({ rea }) => {
   // const products = recs;
   // console.log(products);
   // console.log(products.records[0]);
   // console.log(recs.records);
   // console.log(dummy);
 
-  console.log(records);
+  // console.log(records);
 
-  const x = records[0];
+  // const f = x.map((r) => r.id);
 
-  console.log(x);
+  // const f = x[0].id;
+  // console.log(f);
 
   return (
     <>
@@ -68,6 +70,33 @@ const Home: NextPage<PageProps> = ({ records }) => {
         </ul> */}
 
         {/* <div>{records[0].fields.brand}</div> */}
+
+        {/* <div>{rea.records.map((record) => record.fields.Images.attach)}</div> */}
+        <div>
+          {rea.records.map((record) => {
+            return (
+              <div key={record.id}>
+                <div className="items-center justify-center gap-8 mx-auto my-12 flex flex-col md:flex-row">
+                  {record.fields.Images.map((img) => {
+                    return (
+                      <div key={img.id} className="w-1/4">
+                        <p>x</p>
+                        <Image
+                          src={img.url}
+                          alt="hero"
+                          width={img.width}
+                          height={img.height}
+                          layout="responsive"
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+                <div>{record.fields.Caption}</div>
+              </div>
+            );
+          })}
+        </div>
 
         <h1 className="font-thin">LANDING PAGE PLACEHOLDER</h1>
         <div className="items-center justify-center mx-auto my-12 flex flex-col md:flex-row">
