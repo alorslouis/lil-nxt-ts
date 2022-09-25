@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
+import products from "../api/products";
 
 // export interface AirRecords {
 //   records: Array<Record>;
@@ -109,11 +110,22 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
+async function getAirtableData(product: Record) {
+  const inventory = await fetch("/api/products");
+  const ff = inventory.json().then((value) => console.log(value));
+  // const f = ff.map((r) => r.id);
+  console.log(ff);
+  return ff;
+}
+
 function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter();
   const { name } = router.query;
 
   const product: Record = post.records[0];
+
+  const a = getAirtableData(product);
+  console.log(a);
 
   // console.log(`${siteUrl}/products/${product.id}`);
   // console.log(product);
