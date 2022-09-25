@@ -9,15 +9,6 @@ export default function Layout({ children, pageTitle }: any) {
   const p = path.split("/");
   const pp = p[p.length - 1];
 
-  // if (pp.includes("-")) {
-  //   const ppp = pp.split("-").join(" ").toUpperCase();
-  //   console.log(ppp);
-  //   return ppp;
-  // } else {
-  //   const ppp = pp.toUpperCase();
-  //   // return ppp;
-  // }
-
   function FormatPath(p: string) {
     if (p.includes("-")) {
       const ppp = pp.split("-").join(" ").toUpperCase();
@@ -30,10 +21,7 @@ export default function Layout({ children, pageTitle }: any) {
 
   // if @ root then is fine to use the empty string
   // else format the path & prepend with //
-  const q = pp ?? `// ${FormatPath(pp)}`;
-
-  // console.log(pp);
-  // console.log(q);
+  const q = pp == "" ? pp : `// ${FormatPath(pp)}`;
 
   return (
     <>
@@ -41,7 +29,7 @@ export default function Layout({ children, pageTitle }: any) {
         <title>{`LILLIES ${q}`}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta property="og:title" content="LILLIES" key="ogtitle" />
+        <meta property="og:title" content={`LILLIES ${q}`} key="ogtitle" />
         <meta
           property="og:description"
           content="custom couture, hecho en barcelona"
@@ -52,6 +40,7 @@ export default function Layout({ children, pageTitle }: any) {
         <meta
           property="og:image"
           content="https://lillies.vercel.app/lilsOG.png"
+          // content="https://dl.airtable.com/.attachments/3d84ed731f5630b1dc71fd53d6f952b4/878dea8e/IMG_3308.PNG"
           key="ogimage"
         />
         <meta property="og:site_name" content="LILLIES" key="ogsitename" />
