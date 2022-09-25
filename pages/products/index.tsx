@@ -21,10 +21,28 @@ export const getStaticProps: GetStaticProps = async () => {
 const Product: NextPage<AirProps> = ({ recs }) => {
   const products = recs;
 
+  // lazy set to return unique categories
+  const categories = new Set<string>();
+  products.records.forEach((e) => {
+    categories.add(e.fields.category);
+  });
+  const jj = Array.from(categories.values());
+  console.log(jj);
+
   // console.log(products);
 
   return (
     <div>
+      {/* category nav bar */}
+      <div className="flex my-8 justify-evenly flex-wrap">
+        {jj.map((j) => {
+          return (
+            <div key={j} className="text-xl font-extralight cursor-pointer">
+              <Link href={`products/category/${j}`}>{j}</Link>
+            </div>
+          );
+        })}
+      </div>
       <ul className="grid grid-cols-2 lg:grid-cols-3 gap-4 p-2 mx-auto max-w-screen-md">
         {products &&
           products.records.map((record) => (
