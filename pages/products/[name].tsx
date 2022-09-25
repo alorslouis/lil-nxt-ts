@@ -174,8 +174,6 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
       <Head>
         <meta
           property="og:image"
-          // content="https://lillies.vercel.app/lilsOG.png"
-          // content="https://dl.airtable.com/.attachments/3d84ed731f5630b1dc71fd53d6f952b4/878dea8e/IMG_3308.PNG"
           content={product.fields.attach[0].url}
           key="ogimage"
         />
