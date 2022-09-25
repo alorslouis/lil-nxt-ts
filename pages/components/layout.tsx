@@ -36,14 +36,17 @@ export default function Layout({ children, pageTitle }: any) {
           key="ogdesc"
         />
         <meta property="og:type" content="website" />
-        {/* <meta property="og:url" content={currentURL} key="ogurl" /> */}
         <meta
           property="og:image"
           content="https://lillies.vercel.app/lilsOG.png"
           // content="https://dl.airtable.com/.attachments/3d84ed731f5630b1dc71fd53d6f952b4/878dea8e/IMG_3308.PNG"
           key="ogimage"
         />
-        <meta property="og:site_name" content="LILLIES" key="ogsitename" />
+        <meta
+          property="og:site_name"
+          content={`LILLIES ${q}`}
+          key="ogsitename"
+        />
       </Head>
       <div className="container flex flex-col mx-auto ">
         <nav className="text-center py-4 flex self-center ">
