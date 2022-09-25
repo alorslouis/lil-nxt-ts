@@ -55,13 +55,13 @@ const Category: NextPage<AirProps> = ({ recs }) => {
   return (
     <>
       <Link href={"/products/category"}>
-        <h1 className="text-xl font-extralight">{category}</h1>
+        <h1 className="text-xl font-extralight cursor-pointer">{category}</h1>
       </Link>
-      <ul className="grid grid-cols-2 gap-4 p-2">
+      <ul className="grid grid-cols-2 lg:grid-cols-3 gap-4 p-2 mx-auto max-w-screen-md">
         {product.records.map((prod: Record) => (
           <li key={prod.id} className="flex flex-grow">
             <Link href={`/products/${prod.fields.route}`}>
-              <div className="flex flex-col flex-1 cursor-pointer mx-2 mt-auto py-2 self-center rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1   active:shadow-lg">
+              <div className="flex flex-col flex-1 cursor-pointer mx-8 mt-auto p-2 self-center rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1 active:shadow-lg">
                 <div>
                   {prod.fields?.attach ? (
                     <Image
