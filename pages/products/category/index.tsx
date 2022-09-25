@@ -78,16 +78,18 @@ const Categories: NextPage<Props> = ({ recs }) => {
         {qq.map((r) => (
           <li key={r.id} className="flex flex-grow justify-center ">
             <Link href={`/products/category/${r.fields.category}`}>
-              <div className="flex flex-col flex-1 cursor-pointer mx-8 mt-auto p-2 self-center rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1 active:shadow-lg">
-                <Image
-                  key={r.fields.attach[0].url}
-                  alt={r.fields.title}
-                  src={r.fields.attach[0].url}
-                  width={r.fields.attach[0].width}
-                  height={r.fields.attach[0].height}
-                  layout="responsive"
-                  unoptimized
-                />
+              <div className="flex flex-col grow flex-1 cursor-pointer mx-2 px-6 mt-auto p-2  self-center rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1 active:shadow-lg">
+                <div className="mt-auto">
+                  <Image
+                    key={r.fields.attach[0].url}
+                    alt={r.fields.title}
+                    src={r.fields.attach[0].url}
+                    width={r.fields.attach[0].width}
+                    height={r.fields.attach[0].height}
+                    layout="responsive"
+                    unoptimized
+                  />
+                </div>
                 <p className="cursor-pointer font-thin text-center">
                   {r.fields.category}
                 </p>
