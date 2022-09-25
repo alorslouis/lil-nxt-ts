@@ -71,12 +71,14 @@ const Categories: NextPage<Props> = ({ recs }) => {
 
   return (
     <div>
-      <h1 className="text-xl font-extralight">categories</h1>
-      <ul className="grid md:grid-cols-2 p-6 my-4 mx-auto gap-2 text-center">
+      <Link href={"/products"}>
+        <h1 className="text-xl font-extralight cursor-pointer">categories</h1>
+      </Link>
+      <ul className="grid grid-cols-2 lg:grid-cols-auto gap-4 p-2 mx-auto max-w-screen-md">
         {qq.map((r) => (
-          <li key={r.id} className="flex flex-grow justify-center">
+          <li key={r.id} className="flex flex-grow justify-center ">
             <Link href={`/products/category/${r.fields.category}`}>
-              <div className="flex flex-col flex-1 cursor-pointer mx-2 flex-grow py-2 self-center rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1   active:shadow-lg">
+              <div className="flex flex-col flex-1 cursor-pointer mx-8 mt-auto p-2 self-center rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1 active:shadow-lg">
                 <Image
                   key={r.fields.attach[0].url}
                   alt={r.fields.title}
