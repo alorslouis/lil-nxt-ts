@@ -1,7 +1,7 @@
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { AirProps } from "../..";
+// import { AirProps } from "../..";
 import { Record, AirRecords } from "../[name]";
 import Image from "next/image";
 
@@ -36,6 +36,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
+export interface AirProps {
+  recs: {
+    records: Record[];
+  };
+}
+
 const Category: NextPage<AirProps> = ({ recs }) => {
   const router = useRouter();
   const { category } = router.query;
@@ -52,7 +58,7 @@ const Category: NextPage<AirProps> = ({ recs }) => {
         <h1 className="text-xl font-extralight">{category}</h1>
       </Link>
       <ul className="grid grid-cols-2 gap-4 p-2">
-        {product.records.map((prod) => (
+        {product.records.map((prod: Record) => (
           <li key={prod.id} className="flex flex-grow">
             <Link href={`/products/${prod.fields.route}`}>
               <div className="flex flex-col flex-1 cursor-pointer mx-2 mt-auto py-2 self-center rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1   active:shadow-lg">
