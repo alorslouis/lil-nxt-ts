@@ -18,12 +18,14 @@ export interface Fields {
   Images: Attachment[];
   Caption: string;
   linkTo: string;
+  Title: string;
   isActive: boolean;
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch(
-    `https://api.airtable.com/v0/${process.env.base_id}/Sections/?api_key=${process.env.api_key}`
+    `https://api.airtable.com/v0/${process.env.base_id}/Sections/?filterByFormula=AND(({location}="landing"))&api_key=${process.env.api_key}`
+    // `https://api.airtable.com/v0/appi5kH3IhYEHlz8h/Sections?filterByFormula=AND(({location}="landing"),({isActive}="true"))`
   );
   // const records = (await res.json()) as Record[];
   const rea = await res.json();
@@ -35,13 +37,13 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-interface PageProps {
+export interface SectionProps {
   rea: {
     records: Re[];
   };
 }
 
-const Home: NextPage<PageProps> = ({ rea }) => {
+const Home: NextPage<SectionProps> = ({ rea }) => {
   // const products = recs;
   // console.log(products);
   // console.log(products.records[0]);
@@ -91,11 +93,15 @@ const Home: NextPage<PageProps> = ({ rea }) => {
                     );
                   })}
                 </div>
-                <button className="p-4 my-2 border-black border-2 rounded-md dark:border-gray-200 hover:border-opacity-20 transition-all ease-in-out ">
-                  <Link href={record.fields.linkTo}>
-                    {record.fields.Caption}
-                  </Link>
-                </button>
+                {record.fields.linkTo ? (
+                  <button className="p-4 my-2 border-black border-2 rounded-md dark:border-gray-200 hover:border-opacity-20 transition-all ease-in-out ">
+                    <Link href={record.fields.linkTo}>
+                      {record.fields?.Caption}
+                    </Link>
+                  </button>
+                ) : (
+                  <p>{record.fields?.Caption}</p>
+                )}
               </div>
             );
           })}
