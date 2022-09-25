@@ -36,7 +36,7 @@ const Product: NextPage<AirProps> = ({ recs }) => {
       {/* category nav bar */}
       <hr />
       <div className="flex sticky top-0 z-10">
-        <div className="flex flex-col gap-4 flex-wrap sticky top-0 right-0">
+        <div className="flex flex-col gap-4 flex-wrap sticky top-0 right-0 -mb-20">
           {jj.map((j) => {
             return (
               <div
@@ -49,12 +49,12 @@ const Product: NextPage<AirProps> = ({ recs }) => {
           })}
         </div>
       </div>
-      <ul className="grid grid-cols-2 lg:grid-cols-3 gap-4 p-2 mx-auto max-w-screen-md">
+      <ul className="grid grid-cols-2 lg:grid-cols-3 gap-2 p-2 mx-auto max-w-screen-md">
         {products &&
           products.records.map((record) => (
-            <li key={record.id} className="flex flex-col flex-grow ">
+            <li key={record.id} className="flex ">
               <Link href={`/products/${record.fields.route}`}>
-                <div className="flex flex-col flex-1 cursor-pointer mx-8 mt-auto p-2 px-12 self-center rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1 active:shadow-lg">
+                <div className="flex flex-col grow flex-1 cursor-pointer mx-2 px-12 mt-auto p-2  self-center rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1 active:shadow-lg">
                   <div className="mb-auto">
                     {record.fields?.attach ? (
                       <Image
@@ -77,7 +77,7 @@ const Product: NextPage<AirProps> = ({ recs }) => {
                     )}
                   </div>
 
-                  <p className="font-thin text-base py-6 mt-auto lowercase">
+                  <p className="font-thin text-xs md:text-sm py-6 mt-auto lowercase">
                     {record.fields.title}
                   </p>
                 </div>
