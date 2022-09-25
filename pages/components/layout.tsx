@@ -1,13 +1,19 @@
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import Script from "next/script";
+import { browser } from "process";
 
 export default function Layout({ children, pageTitle }: any) {
   // get the current pathname
   const path = typeof window !== "undefined" ? window.location.pathname : "";
 
-  const p = path.split("/");
+  const { asPath, pathname } = useRouter();
+  console.log(asPath);
+
+  const p = asPath.split("/");
   const pp = p[p.length - 1];
+  console.log(pp);
 
   function FormatPath(p: string) {
     if (p.includes("-")) {
@@ -21,7 +27,7 @@ export default function Layout({ children, pageTitle }: any) {
 
   // if @ root then is fine to use the empty string
   // else format the path & prepend with //
-  const q = pp == "" ? pp : `// ${FormatPath(pp)}`;
+  const q = pp == "" ? pp : `LILLIES // ${FormatPath(pp)}`;
 
   return (
     <>
@@ -29,7 +35,7 @@ export default function Layout({ children, pageTitle }: any) {
         <title>{`LILLIES ${q}`}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta property="og:title" content={`LILLIES ${q}`} key="ogtitle" />
+        <meta property="og:title" content={q} key="ogtitle" />
         <meta
           property="og:description"
           content="custom couture, hecho en barcelona"
