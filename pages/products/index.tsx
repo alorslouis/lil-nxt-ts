@@ -1,8 +1,9 @@
 import { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
-import { AirProps } from "..";
+// import { AirProps } from "..";
 import { AirRecords } from "./[name]";
 import Image from "next/image";
+import { AirProps } from "./category/[category]";
 
 export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch(
