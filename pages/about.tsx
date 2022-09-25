@@ -14,6 +14,7 @@ function About() {
             layout={"responsive"}
             alt="the studio - barcelona es"
             className="rounded-md"
+            unoptimized
           />
         </div>
       </div>
