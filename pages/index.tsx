@@ -100,28 +100,6 @@ const Home: NextPage<PageProps> = ({ rea }) => {
             );
           })}
         </div>
-
-        <h1 className="font-thin">LANDING PAGE PLACEHOLDER</h1>
-        <div className="items-center justify-center mx-auto my-12 flex flex-col md:flex-row">
-          <Image src={heroImage} layout="intrinsic" />
-          <Image src={heroImage} layout="intrinsic" />
-          <Image src={heroImage} layout="intrinsic" />
-        </div>
-        <Link href="/products">
-          <button className="py-4 px-8 m-4 mb-auto rounded-md border-2 hover:border-black">
-            products
-          </button>
-        </Link>
-        <div className="items-center justify-center mx-auto my-12 flex flex-col md:flex-row">
-          <Image src={heroImage} layout="intrinsic" />
-          <Image src={heroImage} layout="intrinsic" />
-          <Image src={heroImage} layout="intrinsic" />
-        </div>
-        <Link href="/products">
-          <button className="py-4 px-8 m-4 mb-auto rounded-md border-2 hover:border-black">
-            products
-          </button>
-        </Link>
       </div>
     </>
   );
