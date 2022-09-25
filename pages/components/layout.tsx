@@ -3,10 +3,42 @@ import Link from "next/link";
 import Script from "next/script";
 
 export default function Layout({ children, pageTitle }: any) {
+  // get the current pathname
+  const path = typeof window !== "undefined" ? window.location.pathname : "";
+
+  const p = path.split("/");
+  const pp = p[p.length - 1];
+
+  // if (pp.includes("-")) {
+  //   const ppp = pp.split("-").join(" ").toUpperCase();
+  //   console.log(ppp);
+  //   return ppp;
+  // } else {
+  //   const ppp = pp.toUpperCase();
+  //   // return ppp;
+  // }
+
+  function FormatPath(p: string) {
+    if (p.includes("-")) {
+      const ppp = pp.split("-").join(" ").toUpperCase();
+      return ppp;
+    } else {
+      const ppp = pp.toUpperCase();
+      return ppp;
+    }
+  }
+
+  // if @ root then is fine to use the empty string
+  // else format the path & prepend with //
+  const q = pp ?? `// ${FormatPath(pp)}`;
+
+  // console.log(pp);
+  // console.log(q);
+
   return (
     <>
       <Head>
-        <title>{pageTitle ?? "LILLIES"}</title>
+        <title>{`LILLIES ${q}`}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta property="og:title" content="LILLIES" key="ogtitle" />
