@@ -1,4 +1,9 @@
-import type { NextPage, GetStaticProps, InferGetStaticPropsType } from "next";
+import type {
+  NextPage,
+  GetStaticProps,
+  InferGetStaticPropsType,
+  NextApiResponse,
+} from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -110,13 +115,20 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
-async function getAirtableData(product: Record) {
-  const inventory = await fetch("/api/products");
-  const ff = inventory.json().then((value) => console.log(value));
-  // const f = ff.map((r) => r.id);
-  console.log(ff);
-  return ff;
-}
+// async function getAirtableData(product: Record) {
+//   const inventory = await fetch("/api/products");
+//   const x: any = [];
+//   const ff = await inventory.json().then((value) => {
+//     // console.log(value);
+//     return value;
+//     // value.json();
+//   });
+//   // .then();
+//   // const ww = inventory.json().then((value) => {});
+//   // const f = ff.map((r) => r.id);
+//   // console.log(ff);
+//   return ff;
+// }
 
 function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter();
@@ -124,11 +136,38 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
 
   const product: Record = post.records[0];
 
-  const a = getAirtableData(product);
-  console.log(a);
+  // const a = getAirtableData(product);
 
-  // console.log(`${siteUrl}/products/${product.id}`);
-  // console.log(product);
+  // console.log(a);
+
+  const x: any = [];
+
+  async function GetInv() {
+    const inv = await fetch("/api/products");
+    const posts = await inv.json();
+    return posts;
+  }
+
+  const GI = async () => {
+    const inv = await fetch("/api/products");
+    const posts = await inv.json();
+    const ff = await posts.map((r: any) => r.stock);
+
+    const fff = await posts.filter((r: any) => r.id === product.id);
+    x.push(posts);
+    console.log(posts);
+    console.log(ff);
+    console.log(fff);
+    const qq = (await fff[0].stock) <= 0;
+    console.log(qq);
+    return posts;
+  };
+
+  // GetInv();
+  // GI();
+  // const f = GI();
+
+  // console.log(xx);
 
   return (
     <>
@@ -198,8 +237,10 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
               product?.fields?.attach[0]?.thumbnails?.large?.url
             }
             data-item-name={product.fields.title}
+            // disabled={product.fields.inventory === 0}
+            disabled={product.fields.inventory === 0}
           >
-            +
+            {product.fields.inventory > 0 ? "+" : "out of stock"}
           </button>
           <p className="p-2 my-2 font-thin font-serif">
             {product.fields.description}
