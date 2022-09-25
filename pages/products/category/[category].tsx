@@ -59,9 +59,9 @@ const Category: NextPage<AirProps> = ({ recs }) => {
       </Link>
       <ul className="grid grid-cols-2 lg:grid-cols-3 gap-4 p-2 mx-auto max-w-screen-md">
         {product.records.map((prod: Record) => (
-          <li key={prod.id} className="flex flex-grow">
+          <li key={prod.id} className="flex grow ">
             <Link href={`/products/${prod.fields.route}`}>
-              <div className="flex flex-col flex-1 cursor-pointer mx-8 mt-auto p-2 self-center rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1 active:shadow-lg">
+              <div className="flex flex-col grow flex-1 cursor-pointer mx-2 px-12 mt-auto p-2  self-center rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1 active:shadow-lg">
                 <div>
                   {prod.fields?.attach ? (
                     <Image
@@ -83,7 +83,7 @@ const Category: NextPage<AirProps> = ({ recs }) => {
                     />
                   )}
                 </div>
-                <p className="font-thin text-base py-6 mt-auto lowercase">
+                <p className="font-thin text-xs md:text-sm py-6 mt-auto lowercase">
                   {prod.fields.title}
                 </p>
               </div>
