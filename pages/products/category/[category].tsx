@@ -83,7 +83,7 @@ const Category: NextPage<AirProps> = ({ recs }) => {
                     />
                   )}
                 </div>
-                <p className="font-thin text-xs md:text-sm py-6 mt-auto lowercase">
+                <p className="font-thin text-sm md:text-base py-6 mt-auto lowercase">
                   {prod.fields.title}
                 </p>
               </div>
