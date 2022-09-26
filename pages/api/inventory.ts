@@ -26,11 +26,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   const cc = async () =>
     await fetch(
-      `https://api.airtable.com/v0/${process.env.base_id}/products/${qq.id}&api_key=${process.env.api_key}`,
+      `https://api.airtable.com/v0/${process.env.base_id}/products/${qq.id}?api_key=${process.env.api_key}`,
       {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `"Bearer ${process.env.api_key}`,
+          // Authorization: `"Bearer ${process.env.api_key}`,
         },
         method: "PATCH",
         body: qa,
@@ -38,6 +38,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       }
     );
 
+  cc();
   // const calls = async () => {
   //   x.forEach(async (item) => {
   //     const { id, fields } = item;
