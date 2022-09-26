@@ -11,6 +11,18 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       quantity: item.quantity,
     };
   });
+  const xx = { records: x };
+  const up = async () => {
+    await fetch(`https://api.airtable.com/v0/${process.env.base_id}/products`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + process.env.api_key,
+      },
+      body: JSON.stringify(xx),
+    });
+  };
 
-  res.status(200).json({ d: "d", x });
+  up();
+
+  res.status(200).json({ d: "d", xx, up });
 };
