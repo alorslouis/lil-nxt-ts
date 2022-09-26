@@ -28,8 +28,8 @@ function About({ rea }: SectionProps) {
           <div className="p-8 m-8 rounded-lg border-2">
             <Image
               src={about?.fields?.Images[0]?.url}
-              width={100}
-              height={100}
+              width={about.fields.Images[0].width}
+              height={about.fields.Images[0].height}
               layout={"responsive"}
               alt="the studio - barcelona es"
               className="rounded-md"
