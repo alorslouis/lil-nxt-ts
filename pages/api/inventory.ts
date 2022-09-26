@@ -24,14 +24,14 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { fields } = qq;
   const qa = JSON.stringify(fields);
 
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
   const cc = async () =>
     await fetch(
       `https://api.airtable.com/v0/${process.env.base_id}/products/${qq.id}?api_key=${process.env.api_key}`,
       {
-        headers: {
-          "Content-Type": "application/json",
-          // Authorization: `"Bearer ${process.env.api_key}`,
-        },
+        headers: myHeaders,
         method: "PATCH",
         body: qa,
         redirect: "follow",
