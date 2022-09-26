@@ -21,11 +21,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         Authorization: "Bearer " + process.env.api_key,
       },
       method: "PATCH",
-      body: JSON.stringify(xx),
+      body: JSON.stringify(x),
     });
   };
 
   up();
 
-  res.status(200).json({ d: "d", xx, up });
+  res.status(200).json({ d: "d", x, up });
 };
