@@ -21,20 +21,23 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const xx = { records: x };
 
   x.forEach(async (element: any) => {
-    const y = element.id;
+    const { id, fields } = element.id;
     const call = await fetch(
-      `https://api.airtable.com/v0/${process.env.base_id}/products/${y}`,
+      `https://api.airtable.com/v0/${process.env.base_id}/products/${id}?api_key=${process.env.api_key}`,
       {
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer " + process.env.api_key,
+          // Authorization: "Bearer " + process.env.api_key,
         },
         method: "PATCH",
-        body: JSON.stringify({ fields: { inventory: 0 } }),
+        body: JSON.stringify(fields),
       }
     );
+    console.log(Error);
     return call;
   });
+
+  const e = [];
 
   // const up = async () => {
   //   await fetch(`https://api.airtable.com/v0/${process.env.base_id}/products`, {
