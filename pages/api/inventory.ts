@@ -27,16 +27,21 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
+  const reqOptions = {
+    method: "PATCH",
+    headers: myHeaders,
+    body: qa,
+    // redirect: "follow",
+  };
+
   const cc = async () =>
     await fetch(
       `https://api.airtable.com/v0/${process.env.base_id}/products/${qq.id}?api_key=${process.env.api_key}`,
-      {
-        method: "PATCH",
-        headers: myHeaders,
-        body: qa,
-        redirect: "follow",
-      }
-    );
+      reqOptions
+    )
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
 
   cc();
   // const calls = async () => {
