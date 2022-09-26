@@ -24,7 +24,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     x.forEach(async (item) => {
       const { id, fields } = item;
       const call = await fetch(
-        `https://api.airtable.com/v0/${process.env.base_id}/products/${id}?api_key=${process.env.api_key}`,
+        `https://api.airtable.com/v0/${process.env.base_id}/products/${id}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -40,7 +40,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     });
   };
 
-  calls();
+  calls;
 
   // x.forEach(async (element: any) => {
   //   const { id, fields } = element;
