@@ -6,7 +6,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   console.log(req.body);
 
   const x: {
-    id: "string";
+    id: string;
     fields: {
       inventory: number;
     };
@@ -20,22 +20,43 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   });
   const xx = { records: x };
 
-  x.forEach(async (element: any) => {
-    const { id, fields } = element.id;
-    const call = await fetch(
-      `https://api.airtable.com/v0/${process.env.base_id}/products/${id}?api_key=${process.env.api_key}`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          // Authorization: "Bearer " + process.env.api_key,
-        },
-        method: "PATCH",
-        body: JSON.stringify(fields),
-      }
-    );
-    console.log(Error);
-    return call;
-  });
+  const calls = async () => {
+    x.forEach(async (item) => {
+      const { id, fields } = item;
+      const call = await fetch(
+        `https://api.airtable.com/v0/${process.env.base_id}/products/${id}?api_key=${process.env.api_key}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            // Authorization: "Bearer " + process.env.api_key,
+          },
+          method: "PATCH",
+          body: JSON.stringify(fields),
+        }
+      );
+      console.log(Error);
+      return call;
+    });
+  };
+
+  calls();
+
+  // x.forEach(async (element: any) => {
+  //   const { id, fields } = element;
+  //   const call = await fetch(
+  //     `https://api.airtable.com/v0/${process.env.base_id}/products/${id}?api_key=${process.env.api_key}`,
+  //     {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         // Authorization: "Bearer " + process.env.api_key,
+  //       },
+  //       method: "PATCH",
+  //       body: fields,
+  //     }
+  //   );
+  //   console.log(Error);
+  //   return call;
+  // });
 
   const e = [];
 
