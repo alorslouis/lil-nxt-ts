@@ -22,7 +22,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   const qq = x[0];
   const { fields } = qq;
-  const qa = JSON.stringify(fields);
+  const qa = JSON.stringify({ fields: fields });
 
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -31,8 +31,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     await fetch(
       `https://api.airtable.com/v0/${process.env.base_id}/products/${qq.id}?api_key=${process.env.api_key}`,
       {
-        headers: myHeaders,
         method: "PATCH",
+        headers: myHeaders,
         body: qa,
         redirect: "follow",
       }
