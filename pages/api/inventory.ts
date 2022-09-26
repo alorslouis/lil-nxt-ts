@@ -30,9 +30,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
           Authorization: "Bearer " + process.env.api_key,
         },
         method: "PATCH",
-        body: JSON.stringify(xx),
+        body: JSON.stringify({ fields: { inventory: 0 } }),
       }
     );
+    return call;
   });
 
   // const up = async () => {
