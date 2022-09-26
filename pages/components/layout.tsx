@@ -32,7 +32,7 @@ export default function Layout({ children, pageTitle }: any) {
   return (
     <>
       <Head>
-        <title>{`LILLIES ${q}`}</title>
+        <title>{q}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta property="og:title" content={q} key="ogtitle" />
