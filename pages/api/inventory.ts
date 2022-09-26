@@ -8,7 +8,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const x = req.body.content.items.map((item: any) => {
     return {
       id: item.id,
-      quantity: item.quantity,
+      fields: {
+        quantity: 0,
+      },
     };
   });
   const xx = { records: x };
