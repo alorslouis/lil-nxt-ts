@@ -22,7 +22,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   const qq = x[0];
   const { fields } = qq;
-  const qa = JSON.stringify({ fields });
+  const qa = JSON.stringify(fields);
 
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -30,7 +30,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const reqOptions = {
     method: "PATCH",
     headers: myHeaders,
-    body: qa,
+    body: JSON.stringify(fields),
     // redirect: "follow",
   };
 
