@@ -28,13 +28,14 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         {
           headers: {
             "Content-Type": "application/json",
-            // Authorization: "Bearer " + process.env.api_key,
+            Authorization: `"Bearer ${process.env.api_key}`,
           },
           method: "PATCH",
           body: JSON.stringify(fields),
         }
       );
       console.log(Error);
+      e.push(call);
       return call;
     });
   };
@@ -58,7 +59,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   //   return call;
   // });
 
-  const e = [];
+  const e: any = [];
 
   // const up = async () => {
   //   await fetch(`https://api.airtable.com/v0/${process.env.base_id}/products`, {
@@ -73,5 +74,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   // up();
 
-  res.status(200).json({ d: "d", x });
+  res.status(200).json({ d: "d", x, e });
 };
