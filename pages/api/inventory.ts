@@ -20,27 +20,45 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   });
   const xx = { records: x };
 
-  const calls = async () => {
-    x.forEach(async (item) => {
-      const { id, fields } = item;
-      const call = await fetch(
-        `https://api.airtable.com/v0/${process.env.base_id}/products/${id}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `"Bearer ${process.env.api_key}`,
-          },
-          method: "PATCH",
-          body: JSON.stringify(fields),
-        }
-      );
-      console.log(Error);
-      e.push(call);
-      return call;
-    });
-  };
+  const qq = x[0];
+  const { fields } = qq;
+  const qa = JSON.stringify(fields);
 
-  calls;
+  const cc = async () =>
+    await fetch(
+      `https://api.airtable.com/v0/${process.env.base_id}/products/${qq.id}&api_key=${process.env.api_key}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `"Bearer ${process.env.api_key}`,
+        },
+        method: "PATCH",
+        body: qa,
+        redirect: "follow",
+      }
+    );
+
+  // const calls = async () => {
+  //   x.forEach(async (item) => {
+  //     const { id, fields } = item;
+  //     const call = await fetch(
+  //       `https://api.airtable.com/v0/${process.env.base_id}/products/${id}`,
+  //       {
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //           Authorization: `"Bearer ${process.env.api_key}`,
+  //         },
+  //         method: "PATCH",
+  //         body: JSON.stringify(fields),
+  //       }
+  //     );
+  //     console.log(Error);
+  //     e.push(call);
+  //     return call;
+  //   });
+  // };
+
+  // calls;
 
   // x.forEach(async (element: any) => {
   //   const { id, fields } = element;
