@@ -41,7 +41,7 @@ const Product: NextPage<AirProps> = ({ recs }) => {
             return (
               <div
                 key={j}
-                className="text-md bg-slate-800 dark:bg-slate-100 bg-opacity-10 dark:bg-opacity-10 px-4 py-2 first:mt-2 border-2 hover:border-r-slate-400 rounded-r-lg font-extralight cursor-pointer transition-all ease-in-out"
+                className="text-md bg-slate-800 dark:bg-slate-100 border-l-0 bg-opacity-10 dark:bg-opacity-10 px-4 py-2 first:mt-2 border-2 hover:border-r-slate-400 rounded-r-lg font-extralight cursor-pointer transition-all ease-in-out"
               >
                 <Link href={`products/category/${j}`}>{j}</Link>
               </div>
