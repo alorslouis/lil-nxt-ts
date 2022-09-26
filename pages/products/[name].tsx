@@ -230,6 +230,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
             data-item-price={product.fields.priceEur}
             // data-item-url={`${siteUrl}/products/${product.id}`}
             data-item-url={"api/products"}
+            data-item-max-quantity={1}
             data-item-image={
               product?.fields?.attach &&
               product?.fields?.attach[0]?.thumbnails?.large?.url
