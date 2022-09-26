@@ -93,5 +93,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   // up();
 
-  res.status(200).json({ d: "d", x, e });
+  res.status(200).json({ d: "d", x, qa });
 };
