@@ -20,6 +20,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         "Content-Type": "application/json",
         Authorization: "Bearer " + process.env.api_key,
       },
+      method: "PATCH",
       body: JSON.stringify(xx),
     });
   };
