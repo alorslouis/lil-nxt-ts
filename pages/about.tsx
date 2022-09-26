@@ -24,17 +24,19 @@ function About({ rea }: SectionProps) {
       <div className="items-center my-10">
         <div className="font-semibold text-lg">{about.fields.Title}</div>
         <div>{about.fields.Caption}</div>
-        <div className="p-8 m-8 rounded-lg border-2">
-          <Image
-            src={about?.fields?.Images[0]?.url}
-            width={100}
-            height={100}
-            layout={"responsive"}
-            alt="the studio - barcelona es"
-            className="rounded-md"
-            unoptimized
-          />
-        </div>
+        {about?.fields?.Images && (
+          <div className="p-8 m-8 rounded-lg border-2">
+            <Image
+              src={about?.fields?.Images[0]?.url}
+              width={100}
+              height={100}
+              layout={"responsive"}
+              alt="the studio - barcelona es"
+              className="rounded-md"
+              unoptimized
+            />
+          </div>
+        )}
       </div>
     </>
   );
