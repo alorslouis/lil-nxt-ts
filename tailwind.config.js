@@ -5,12 +5,17 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    fontFamily: {
-      serif: ["YoungSerif-Regular", "ui-serif", "Georgia"],
+    extend: {
+      fontFamily: {
+        futura: ["Futura", "ui-sans-serif", "system-ui"],
+        nimbus: ["NimbusSanTBlaConRegular", "ui-sans-serif", "system-ui"],
+      },
     },
-    extend: {},
   },
   plugins: [require("daisyui")],
+  corePlugins: {
+    fontFamily: true,
+  },
   daisyui: {
     styled: false,
     themes: false,
