@@ -1,7 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
+import { AirRecords, Record } from "../products/[name]";
+
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  console.log(req.body.content.items);
+  // console.log(req.body.content.items);
 
   // if (req.body.eventName === "order.completed") {
   const bodyItems = req.body.content.items;
