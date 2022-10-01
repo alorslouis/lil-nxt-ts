@@ -21,7 +21,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     };
   });
 
-  const qa = JSON.stringify({ records: x });
+  const qa =
+    x.length > 1
+      ? JSON.stringify({ records: x })
+      : JSON.stringify({ fields: x[0].fields });
 
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
