@@ -6,13 +6,21 @@
   font-family: "Futura";
   font-style: normal;
   font-weight: 400;
-  src: local(""), url("/fonts/1.FuturaStd-Medium.otf") format("otf");
+  src: local(""), url("/fonts/Futura.otf") format("otf");
 }
+
+@font-face {
+  font-family: "Nimb";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("/fonts/NimbusSanPRegular.ttf") format("ttf");
+}
+
 @font-face {
   font-family: "NimbusSanTBlaConRegular";
   font-style: normal;
   font-weight: 400;
-  src: local(""), url("/fonts/NimbusSanTBlaCon Regular.ttf") format("ttf");
+  src: local(""), url("/fonts/NimbusSanTBlaConRegular.ttf") format("ttf");
 }
 
 /* @font-face {
