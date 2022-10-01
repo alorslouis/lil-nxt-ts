@@ -30,7 +30,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const reqOptions = {
     method: "PATCH",
     headers: myHeaders,
-    body: JSON.stringify(qq.fields),
+    body: JSON.stringify(qq),
     // redirect: "follow",
   };
 
