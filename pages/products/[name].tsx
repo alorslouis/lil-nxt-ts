@@ -134,7 +134,7 @@ async function GetInventory(product: Record) {
   const x = await fetch("/api/products");
   const y = await x.json();
   const filtered = y.filter((r: Record) => r.id === product.id);
-  return filtered;
+  return console.log(filtered);
 }
 
 function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -143,9 +143,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
 
   const product: Record = post.records[0];
 
-  GetInventory(product).then((value) => {
-    return console.log(value);
-  });
+  GetInventory(product);
 
   // const a = getAirtableData(product);
 
