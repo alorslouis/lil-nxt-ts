@@ -108,5 +108,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   // up();
 
-  res.status(200).json({ e, qa });
+  e.length === x.length && res.status(200).json({ e, qa });
 };
