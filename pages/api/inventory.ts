@@ -24,12 +24,15 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const qs = JSON.stringify({ fields: { inventory: 0 } });
   const qq = x.length > 1 ? qa : qs;
 
-  const myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
+  // const myHeaders = new Headers();
+  // myHeaders.append("Content-Type", "application/json");
 
   const reqOptions = {
     method: "PATCH",
-    headers: myHeaders,
+    headers: {
+      "Content-Type": "application/json",
+      // 'Cookie': 'brw=brwDwFnk4OUnfgDfq'
+    },
     body: qa,
     // body: qq,
   };
