@@ -47,7 +47,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       reqOptions
     );
 
-  x.length > 1 ? cc() : cs();
+  if (x.length > 1) {
+    cc();
+  } else {
+    cs();
+  }
 
   const fx = Array.isArray(x);
   const length = x.length;
