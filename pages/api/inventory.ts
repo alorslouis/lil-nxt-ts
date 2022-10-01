@@ -43,16 +43,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const cc = () =>
     fetch(
       // `https://api.airtable.com/v0/${process.env.base_id}/products/${prod.id}?api_key=${process.env.api_key}`,
-      `https://api.airtable.com/v0/${process.env.base_id}/products?api_key=${process.env.api_key}`,
+      `https://api.airtable.com/v0/${process.env.base_id}/products/?api_key=${process.env.api_key}`,
       // route,
       reqOptions
     );
 
-  // if (x.length > 1) {
   cc();
-  // } else {
-  // cs();
-  // }
 
   const fx = Array.isArray(x);
   const length = x.length;
