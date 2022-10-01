@@ -40,7 +40,7 @@ const Product: NextPage<AirProps> = ({ recs }) => {
           {jj.map((j) => {
             return (
               <Link key={j} href={`products/category/${j}`}>
-                <div className="text-md bg-slate-800 dark:bg-slate-100 border-l-0 bg-opacity-10 dark:bg-opacity-10 px-4 py-2 first:mt-2 border-2 hover:border-r-slate-400 rounded-r-lg font-extralight cursor-pointer transition-all ease-in-out">
+                <div className="text-md font-futura bg-slate-800 dark:bg-slate-100 border-l-0 bg-opacity-10 dark:bg-opacity-10 px-4 py-2 first:mt-2 border-2 hover:border-r-slate-400 rounded-r-lg font-extralight cursor-pointer transition-all ease-in-out">
                   {j}
                 </div>
               </Link>
@@ -76,7 +76,7 @@ const Product: NextPage<AirProps> = ({ recs }) => {
                     )}
                   </div>
 
-                  <p className="font-thin text-sm md:text-base py-6 mt-auto lowercase">
+                  <p className="font-thin font-nimb capitalize text-sm md:text-base py-6 mt-auto">
                     {record.fields.title}
                   </p>
                 </div>
