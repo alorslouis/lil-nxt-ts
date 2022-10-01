@@ -11,6 +11,7 @@ export async function getStaticPaths() {
     `https://api.airtable.com/v0/${process.env.base_id}/products?api_key=${process.env.api_key}`
   );
   const posts = await res.json();
+  //
 
   // Get the paths we want to pre-render based on posts
   const paths = posts.records.map((post: Record) => ({
