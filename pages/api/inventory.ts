@@ -34,7 +34,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     // redirect: "follow",
   };
 
-  const cc = () =>
+  const cc = (prod: any) =>
     fetch(
       `https://api.airtable.com/v0/${process.env.base_id}/products/${qq.id}?api_key=${process.env.api_key}`,
       reqOptions
@@ -43,7 +43,17 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
 
-  cc();
+  // cc();
+
+  if (x.length > 0) {
+    try {
+      for (let i = 0; i < xx.records.length; i++) {
+        const record = xx.records[i];
+        cc(record);
+      }
+    } catch (error) {}
+  }
+
   // const calls = async () => {
   //   x.forEach(async (item) => {
   //     const { id, fields } = item;
