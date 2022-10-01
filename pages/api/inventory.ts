@@ -37,18 +37,22 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   };
 
   const cc = () => {
-    if (x.length > 1) {
-      fetch(
-        // `https://api.airtable.com/v0/${process.env.base_id}/products/${prod.id}?api_key=${process.env.api_key}`,
-        `https://api.airtable.com/v0/${process.env.base_id}/products/?api_key=${process.env.api_key}`,
-        reqOptions
-      );
-    } else {
-      fetch(
-        `https://api.airtable.com/v0/${process.env.base_id}/products/${x[0].id}?api_key=${process.env.api_key}`,
-        reqOptions
-      );
-    }
+    // airtable api keeps failing on update of single record
+    // bc different shape + route
+    // so handling for single record update here
+
+    // if (x.length > 1) {
+    fetch(
+      // `https://api.airtable.com/v0/${process.env.base_id}/products/${prod.id}?api_key=${process.env.api_key}`,
+      `https://api.airtable.com/v0/${process.env.base_id}/products/?api_key=${process.env.api_key}`,
+      reqOptions
+    );
+    // } else {
+    //   fetch(
+    //     `https://api.airtable.com/v0/${process.env.base_id}/products/${x[0].id}?api_key=${process.env.api_key}`,
+    //     reqOptions
+    //   );
+    // }
   };
   // .then((response) => response.text())
   // .then((result) => e.push(result))
