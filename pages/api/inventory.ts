@@ -37,7 +37,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   const route =
     x.length !== 0
-      ? `https://api.airtable.com/v0/${process.env.base_id}/products/?api_key=${process.env.api_key}`
+      ? `https://api.airtable.com/v0/${process.env.base_id}/products?api_key=${process.env.api_key}`
       : `https://api.airtable.com/v0/${process.env.base_id}/products/${x[0].id}?api_key=${process.env.api_key}`;
 
   const cc = () =>
@@ -59,5 +59,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   // cc();
 
-  res.status(200).json({ qa, array: fx, length: length });
+  res.status(200).json({ array: fx, length: length, qq });
 };
