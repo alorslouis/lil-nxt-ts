@@ -41,7 +41,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   // .then((result) => e.push(result))
   // .catch((error) => console.log("error", error));
 
-  cc();
+  x && cc();
 
   res.status(200).json({ qa });
 };
