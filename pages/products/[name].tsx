@@ -130,12 +130,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 //   return ff;
 // }
 
-async function GetInventory(product: Record) {
-  const x = await fetch("/api/products");
-  const y = await x.json();
-  const filtered = y.filter((r: Record) => r.id === product.id);
-  return console.log(filtered);
-}
+// async function GetInventory(product: Record) {
+//   const x = await fetch("/api/products");
+//   const y = await x.json();
+//   const filtered = y.filter((r: Record) => r.id === product.id);
+//   return console.log(filtered);
+// }
 
 function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter();
@@ -143,7 +143,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
 
   const product: Record = post.records[0];
 
-  GetInventory(product);
+  // GetInventory(product);
 
   // const a = getAirtableData(product);
 
