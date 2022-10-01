@@ -43,5 +43,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   cc();
 
-  res.status(200).json({ e, qa });
+  res.status(200).json({ qa });
 };
