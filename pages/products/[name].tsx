@@ -208,16 +208,18 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
 
         {/* <div className="self-center flex flex-auto gap-2"> */}
         <div className="flex flex-auto mx-auto p-8 flex-col self-center items-center md:w-2/5">
-          <div className="my-1 font-thin text-2xl lowercase">
+          <div className="my-1 font-nimb font-thin text-2xl capitalize">
             {product?.fields?.title}
           </div>
-          <div className="my-1 font-bold uppercase text-sm">
+          <div className="my-1 font-bold font-futura uppercase text-sm">
             – {product.fields.brand} –
           </div>
-          <div className="my-1 text-sm font-thin">
+          <div className="my-1 text-sm font-thin font-futura">
             size: {product.fields.size}
           </div>
-          <div className="my-1 font-thin">€{product.fields.priceEur}</div>
+          <div className="my-1 font-thin font-futura">
+            €{product.fields.priceEur}
+          </div>
           {/* test - record: {name} */}
           {/* size: {product.fields.size}
           category: {product.fields.category}
@@ -241,7 +243,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
           >
             {product.fields.inventory > 0 ? "+" : "out of stock"}
           </button>
-          <p className="p-2 my-2 font-thin font-serif">
+          <p className="p-2 my-2 font-thin font-nimb">
             {product.fields.description}
           </p>
         </div>
