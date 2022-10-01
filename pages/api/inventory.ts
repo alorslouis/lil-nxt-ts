@@ -49,7 +49,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   x.length > 1 ? cc() : cs();
 
+  const fx = Array.isArray(qa);
+
   // cc();
 
-  res.status(200).json({ qa });
+  res.status(200).json({ qa, array: fx });
 };
