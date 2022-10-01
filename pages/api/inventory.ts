@@ -21,11 +21,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     };
   });
 
-  const qa =
-    // x.length > 1
-    // ?
-    JSON.stringify({ records: x });
-  // : JSON.stringify({ fields: x[0].fields });
+  const qa = JSON.stringify({ records: x });
+  const qs = JSON.stringify({ fields: { inventory: 0 } });
+  const qq = x.length !== 0 ? qa : qs;
 
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -33,18 +31,20 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const reqOptions = {
     method: "PATCH",
     headers: myHeaders,
-    body: qa,
+    // body: qa,
+    body: qq,
   };
+
+  const route =
+    x.length !== 0
+      ? `https://api.airtable.com/v0/${process.env.base_id}/products/?api_key=${process.env.api_key}`
+      : `https://api.airtable.com/v0/${process.env.base_id}/products/${x[0].id}?api_key=${process.env.api_key}`;
 
   const cc = () =>
     fetch(
       // `https://api.airtable.com/v0/${process.env.base_id}/products/${prod.id}?api_key=${process.env.api_key}`,
-      `https://api.airtable.com/v0/${process.env.base_id}/products/?api_key=${process.env.api_key}`,
-      reqOptions
-    );
-  const cs = () =>
-    fetch(
-      `https://api.airtable.com/v0/${process.env.base_id}/products/${x[0].id}?api_key=${process.env.api_key}`,
+      // `https://api.airtable.com/v0/${process.env.base_id}/products/?api_key=${process.env.api_key}`,
+      route,
       reqOptions
     );
 
