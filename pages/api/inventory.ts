@@ -35,20 +35,17 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     body: qa,
   };
 
-  const cc = () => {
+  const cc = () =>
     fetch(
       // `https://api.airtable.com/v0/${process.env.base_id}/products/${prod.id}?api_key=${process.env.api_key}`,
       `https://api.airtable.com/v0/${process.env.base_id}/products?api_key=${process.env.api_key}`,
       reqOptions
     );
-  };
-
-  const cs = () => {
+  const cs = () =>
     fetch(
       `https://api.airtable.com/v0/${process.env.base_id}/products/${x[0].id}?api_key=${process.env.api_key}`,
       reqOptions
     );
-  };
 
   x.length > 1 ? cc() : cs();
 
