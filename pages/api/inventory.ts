@@ -34,7 +34,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     // redirect: "follow",
   };
 
-  const cc = (prod: any) =>
+  const cc = () =>
     fetch(
       // `https://api.airtable.com/v0/${process.env.base_id}/products/${prod.id}?api_key=${process.env.api_key}`,
       `https://api.airtable.com/v0/${process.env.base_id}/products/?api_key=${process.env.api_key}`,
@@ -44,16 +44,16 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       .then((result) => e.push(result))
       .catch((error) => console.log("error", error));
 
-  // cc();
+  qa && cc();
 
-  if (x.length > 0) {
-    try {
-      for (let i = 0; i < xx.records.length; i++) {
-        const record = xx.records[i];
-        cc(record);
-      }
-    } catch (error) {}
-  }
+  // if (x.length > 0) {
+  //   try {
+  //     for (let i = 0; i < xx.records.length; i++) {
+  //       const record = xx.records[i];
+  //       cc(record);
+  //     }
+  //   } catch (error) {}
+  // }
 
   // const calls = async () => {
   //   x.forEach(async (item) => {
