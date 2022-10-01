@@ -36,15 +36,15 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   };
 
   const route =
-    x.length !== 0
+    x.length > 1
       ? `https://api.airtable.com/v0/${process.env.base_id}/products?api_key=${process.env.api_key}`
       : `https://api.airtable.com/v0/${process.env.base_id}/products/${x[0].id}?api_key=${process.env.api_key}`;
 
   const cc = () =>
     fetch(
       // `https://api.airtable.com/v0/${process.env.base_id}/products/${prod.id}?api_key=${process.env.api_key}`,
-      // `https://api.airtable.com/v0/${process.env.base_id}/products/?api_key=${process.env.api_key}`,
-      route,
+      `https://api.airtable.com/v0/${process.env.base_id}/products?api_key=${process.env.api_key}`,
+      // route,
       reqOptions
     );
 
