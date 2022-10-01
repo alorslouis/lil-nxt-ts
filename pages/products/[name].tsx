@@ -130,11 +130,22 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 //   return ff;
 // }
 
+async function GetInventory(product: Record) {
+  const x = await fetch("/api/products");
+  const y = await x.json();
+  const filtered = y.filter((r: Record) => r.id === product.id);
+  return filtered;
+}
+
 function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter();
   const { name } = router.query;
 
   const product: Record = post.records[0];
+
+  GetInventory(product).then((value) => {
+    return console.log(value);
+  });
 
   // const a = getAirtableData(product);
 
