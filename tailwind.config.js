@@ -9,6 +9,7 @@ module.exports = {
       fontFamily: {
         futura: ["Futura", "ui-sans-serif", "system-ui"],
         nimbus: ["NimbusSanTBlaConRegular", "ui-sans-serif", "system-ui"],
+        nimb: ["Nimb"],
       },
     },
   },
