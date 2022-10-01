@@ -21,8 +21,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const xx = { records: x };
 
   const qq = x[0];
-  const { fields } = qq;
-  const qa = JSON.stringify(fields);
+  // const { fields } = qq;
+  const qa = JSON.stringify(qq.fields);
 
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -30,17 +30,17 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const reqOptions = {
     method: "PATCH",
     headers: myHeaders,
-    body: JSON.stringify(fields),
+    body: JSON.stringify(qq.fields),
     // redirect: "follow",
   };
 
   const cc = (prod: any) =>
     fetch(
-      `https://api.airtable.com/v0/${process.env.base_id}/products/${qq.id}?api_key=${process.env.api_key}`,
+      `https://api.airtable.com/v0/${process.env.base_id}/products/${prod.id}?api_key=${process.env.api_key}`,
       reqOptions
     )
       .then((response) => response.text())
-      .then((result) => console.log(result))
+      .then((result) => e.push(result))
       .catch((error) => console.log("error", error));
 
   // cc();
@@ -108,5 +108,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   // up();
 
-  res.status(200).json({ d: "d", x, qa });
+  res.status(200).json({ e, qa });
 };
