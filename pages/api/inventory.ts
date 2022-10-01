@@ -30,7 +30,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const reqOptions = {
     method: "PATCH",
     headers: myHeaders,
-    body: JSON.stringify(qa),
+    body: qa,
     // redirect: "follow",
   };
 
@@ -44,7 +44,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       .then((result) => e.push(result))
       .catch((error) => console.log("error", error));
 
-  qa && cc();
+  cc();
 
   // if (x.length > 0) {
   //   try {
