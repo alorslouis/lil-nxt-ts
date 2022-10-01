@@ -31,7 +31,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
-      // 'Cookie': 'brw=brwDwFnk4OUnfgDfq'
     },
     body: qa,
     // body: qq,
