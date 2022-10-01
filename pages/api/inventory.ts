@@ -38,7 +38,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const cc = () =>
     fetch(
       // `https://api.airtable.com/v0/${process.env.base_id}/products/${prod.id}?api_key=${process.env.api_key}`,
-      `https://api.airtable.com/v0/${process.env.base_id}/products?api_key=${process.env.api_key}`,
+      `https://api.airtable.com/v0/${process.env.base_id}/products/?api_key=${process.env.api_key}`,
       reqOptions
     );
   const cs = () =>
