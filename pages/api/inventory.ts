@@ -5,7 +5,7 @@ import { AirRecords, Record } from "../products/[name]";
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   console.log(req.body);
 
-  if (req.body === "order.completed") {
+  if (req.body.eventName === "order.completed") {
     const x: {
       id: string;
       fields: {
