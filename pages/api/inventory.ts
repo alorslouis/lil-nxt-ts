@@ -23,7 +23,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   const qa = JSON.stringify({ records: x });
   const qs = JSON.stringify({ fields: { inventory: 0 } });
-  const qq = x.length !== 0 ? qa : qs;
+  const qq = x.length > 1 ? qa : qs;
 
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -31,8 +31,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const reqOptions = {
     method: "PATCH",
     headers: myHeaders,
-    // body: qa,
-    body: qq,
+    body: qa,
+    // body: qq,
   };
 
   const route =
