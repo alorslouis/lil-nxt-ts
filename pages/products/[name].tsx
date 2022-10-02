@@ -197,7 +197,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
           <div className="my-1 font-nimb font-thin text-2xl capitalize">
             {product?.fields?.title}
           </div>
-          <div>{inStock ? "true" : "false"}</div>
+          {/* <div>{inStock ? "true" : "false"}</div> */}
           <div className="my-1 font-bold font-futura uppercase text-sm">
             – {product.fields.brand} –
           </div>
@@ -228,7 +228,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
             // disabled={product.fields.inventory === 0}
             disabled={product.fields.inventory === 0 || !inStock}
           >
-            {product.fields.inventory > 0 ? "+" : "out of stock"}
+            {product.fields.inventory > 0 || !inStock ? "+" : "out of stock"}
           </button>
           <p className="p-2 my-2 font-thin font-nimb">
             {product.fields.description}
