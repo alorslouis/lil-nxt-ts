@@ -228,7 +228,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
             // disabled={product.fields.inventory === 0}
             disabled={product.fields.inventory === 0 || !inStock}
           >
-            {product.fields.inventory > 0 || inStock ? "+" : "out of stock"}
+            {inStock || product.fields.inventory !== 0 ? "+" : "out of stock"}
           </button>
           <p className="p-2 my-2 font-thin font-nimb">
             {product.fields.description}
