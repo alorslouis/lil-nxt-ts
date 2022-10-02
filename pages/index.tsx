@@ -88,6 +88,7 @@ const Home: NextPage<SectionProps> = ({ rea }) => {
                           width={img.width}
                           height={img.height}
                           layout="responsive"
+                          unoptimized
                         />
                       </div>
                     );
