@@ -26,6 +26,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       description: record.fields.description,
       image: record.fields.attach[0].url,
       stock: record.fields.inventory,
+      isActive: record.fields.isActive,
     };
   });
 
