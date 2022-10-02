@@ -145,7 +145,9 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
 
   console.log(inStock);
 
-  GI();
+  if (typeof window !== "undefined") {
+    GI();
+  }
 
   // GetInv();
   // GI();
