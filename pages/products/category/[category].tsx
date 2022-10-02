@@ -26,7 +26,7 @@ export async function getStaticPaths() {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const route = params?.category;
   const res = await fetch(
-    `https://api.airtable.com/v0/${process.env.base_id}/products?filterByFormula=AND(({category}="${route}"))&api_key=${process.env.api_key}`
+    `https://api.airtable.com/v0/${process.env.base_id}/products?filterByFormula=AND(({category}="${route}"),({isActive}=1))&api_key=${process.env.api_key}`
   );
   const recs = (await res.json()) as AirRecords;
 
