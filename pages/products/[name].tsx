@@ -87,7 +87,7 @@ const siteUrl = devOrProd("localhost:3000", "https://lillies.vercel.app");
 export async function getStaticPaths() {
   // Call an external API endpoint to get posts
   const res = await fetch(
-    `https://api.airtable.com/v0/${process.env.base_id}/products?api_key=${process.env.api_key}`
+    `https://api.airtable.com/v0/${process.env.base_id}/products?filterByFormula=AND(({isActive}=1))&api_key=${process.env.api_key}`
   );
   const posts = await res.json();
 
