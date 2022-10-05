@@ -35,13 +35,13 @@ const Product: NextPage<AirProps> = ({ recs }) => {
     <div>
       {/* category nav bar */}
       <hr />
-      <div className="flex">
+      <div className="flex flex-col">
         {/* <div className="flex sticky top-0 z-10"> */}
-        <div className="flex flex-col gap-4 flex-wrap sticky top-0 -mr-12">
+        <div className="flex sticky top-0 z-10 self-start">
           {jj.map((j) => {
             return (
               <Link key={j} href={`products/category/${j}`}>
-                <div className="text-md flex font-futura bg-slate-800 dark:bg-slate-100 border-l-0 bg-opacity-10 dark:bg-opacity-10 px-4 py-2 first:mt-2 border-2 hover:border-r-slate-400 rounded-r-lg font-extralight cursor-pointer transition-all ease-in-out">
+                <div className=" hover:scale-95 font-futura self-center bg-slate-600 dark:bg-slate-200 hover:backdrop-brightness-125 border-transparent backdrop-blur-lg first:rounded-bl-lg last:rounded-br-lg active:translate-y-1 active:shadow-lg border-b-2 hover:border-black dark:hover:border-b-white bg-opacity-10 dark:bg-opacity-10 px-4 py-4 cursor-pointer transition-all ease-in-out">
                   {j}
                 </div>
               </Link>
@@ -76,7 +76,7 @@ const Product: NextPage<AirProps> = ({ recs }) => {
                         />
                       )}
                     </div>
-                    <p className="font-thin font-nimb capitalize text-sm md:text-base py-6 mt-auto">
+                    <p className="font-thin font-futura capitalize text-sm md:text-base py-6 mt-auto">
                       {record.fields.title}
                     </p>
                   </div>
