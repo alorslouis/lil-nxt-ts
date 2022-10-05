@@ -56,9 +56,9 @@ const Category: NextPage<AirProps> = ({ recs }) => {
   return (
     <>
       <Link href={"/products/category"}>
-        <h1 className="text-xl font-extralight cursor-pointer">{category}</h1>
+        <h1 className="text-xl font-futura cursor-pointer">{category}</h1>
       </Link>
-      <ul className="grid grid-cols-2 lg:grid-cols-3 gap-4 p-2 mx-auto max-w-screen-md">
+      <ul className="grid grid-cols-2 lg:grid-cols-auto gap-4 p-2 my-4 mx-auto max-w-screen-md">
         {product.records.map((prod: Record) => (
           <li key={prod.id} className="flex grow ">
             <Link href={`/products/${prod.fields.route}`}>
@@ -84,7 +84,7 @@ const Category: NextPage<AirProps> = ({ recs }) => {
                     />
                   )}
                 </div>
-                <p className="font-thin font-futura text-sm md:text-base py-6 mt-auto capitalize">
+                <p className="font-bold font-futura text-sm md:text-base py-6 mt-auto capitalize">
                   {prod.fields.title}
                 </p>
               </div>
