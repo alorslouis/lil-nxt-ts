@@ -1,4 +1,4 @@
-import { GetStaticProps, NextPage } from "next";
+import { GetStaticProps, NextComponentType, NextPage } from "next";
 import Link from "next/link";
 // import { AirProps } from "..";
 import { AirRecords } from "./[name]";
