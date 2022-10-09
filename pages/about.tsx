@@ -25,12 +25,6 @@ function About({ rea }: SectionProps) {
         <div className="font-semibold text-lg font-nimbus">
           {about.fields.Title}
         </div>
-        <div>
-          <p className="">nimbus</p>
-          <p className="font-nimbus">nimbus</p>
-          <p className="font-nimb">nimbus</p>
-          <p className="font-futura">futura</p>
-        </div>
         <div>{about.fields.Caption}</div>
         {about?.fields?.Images && (
           <div className="p-8 m-8 md:max-w-xl md:mx-auto rounded-lg border-2">
