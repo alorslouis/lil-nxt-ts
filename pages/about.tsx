@@ -27,7 +27,7 @@ function About({ rea }: SectionProps) {
         </div>
         <div>{about.fields.Caption}</div>
         {about?.fields?.Images && (
-          <div className="p-8 m-8 md:max-w-xl md:mx-auto rounded-lg border-2">
+          <div className="p-8 m-8 md:max-w-xl md:mx-auto ">
             <Image
               src={about?.fields?.Images[0]?.url}
               width={about.fields.Images[0].width}
