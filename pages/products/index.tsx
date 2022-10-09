@@ -49,41 +49,43 @@ const Product: NextPage<AirProps> = ({ recs }) => {
           })}
         </div>
         {/* </div> */}
-        <ul className="grid grid-cols-2 lg:grid-cols-3 gap-2 p-2 mx-auto max-w-screen-lg">
-          {products &&
-            products.records.map((record) => (
-              <li key={record.id} className="flex ">
-                <Link href={`/products/${record.fields.route}`}>
-                  <div className="flex flex-col grow flex-1 cursor-pointer mx-2 px-12 mt-auto p-2  self-center rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1 active:shadow-lg">
-                    <div className="mb-auto">
-                      {record.fields?.attach ? (
-                        <Image
-                          key={record.fields.attach[0].url}
-                          alt={record.fields.title}
-                          src={record.fields.attach[0].url}
-                          width={record.fields.attach[0].width}
-                          height={record.fields.attach[0].height}
-                          layout="responsive"
-                          unoptimized
-                        />
-                      ) : (
-                        <Image
-                          // key={}
-                          src={"/lilsOg.png"}
-                          width={700}
-                          height={400}
-                          // layout="fill"
-                        />
-                      )}
+        <div className="mx-auto">
+          <ul className="grid grid-cols-2 lg:grid-cols-3 gap-4 p-2  max-w-screen-lg">
+            {products &&
+              products.records.map((record) => (
+                <li key={record.id} className="flex ">
+                  <Link href={`/products/${record.fields.route}`}>
+                    <div className="flex flex-col grow flex-1 cursor-pointer mx-2 px-6 mt-auto p-2  self-center rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1 active:shadow-lg">
+                      <div className="mt-auto">
+                        {record.fields?.attach ? (
+                          <Image
+                            key={record.fields.attach[0].url}
+                            alt={record.fields.title}
+                            src={record.fields.attach[0].url}
+                            width={record.fields.attach[0].width}
+                            height={record.fields.attach[0].height}
+                            // layout="responsive"
+                            unoptimized
+                          />
+                        ) : (
+                          <Image
+                            // key={}
+                            src={"/lilsOg.png"}
+                            width={700}
+                            height={400}
+                            // layout="fill"
+                          />
+                        )}
+                      </div>
+                      <p className="font-thin font-futura capitalize text-sm md:text-base py-6 mt-auto">
+                        {record.fields.title}
+                      </p>
                     </div>
-                    <p className="font-thin font-futura capitalize text-sm md:text-base py-6 mt-auto">
-                      {record.fields.title}
-                    </p>
-                  </div>
-                </Link>
-              </li>
-            ))}
-        </ul>
+                  </Link>
+                </li>
+              ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
