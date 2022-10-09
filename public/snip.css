@@ -3,7 +3,7 @@
   font-family: Open Sans, sans-serif;
   font-size: 14px;
   font-weight: 300;
-  color: #2e3338;
+  color: #f6f6f6;
   color: var(--color-default, #2e3338);
 }
 
@@ -1749,6 +1749,7 @@
   display: flex;
   align-items: center;
   margin-top: 12px;
+  color: white;
 }
 
 .snipcart-subscription-details__plan {
