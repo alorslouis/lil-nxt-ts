@@ -45,7 +45,7 @@
   --color-link-active: var(--color-link);
   --color-link-focus: var(--color-link);
 
-  --color-input: var(--color-default);
+  --color-input: var(--color-default), white;
   --color-input-hover: var(--color-input);
   --color-input-focus: var(--color-input);
   --color-input-checked: var(--color-input);
