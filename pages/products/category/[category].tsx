@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 // import { AirProps } from "../..";
 import { Record, AirRecords } from "../[name]";
 import Image from "next/image";
+import CatNav from "../../components/catNav";
 
 export async function getStaticPaths() {
   // Call an external API endpoint to get posts
@@ -58,6 +59,7 @@ const Category: NextPage<AirProps> = ({ recs }) => {
       <Link href={"/products/category"}>
         <h1 className="text-xl font-futura cursor-pointer">{category}</h1>
       </Link>
+      <CatNav recs={product} />
       <ul className="grid grid-cols-2 lg:grid-cols-auto gap-4 p-2 my-4 mx-auto max-w-screen-md">
         {product.records.map((prod: Record) => (
           <li key={prod.id} className="flex grow ">
