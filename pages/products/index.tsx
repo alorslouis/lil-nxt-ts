@@ -4,6 +4,7 @@ import Link from "next/link";
 import { AirRecords } from "./[name]";
 import Image from "next/image";
 import { AirProps } from "./category/[category]";
+import CatNav from "../components/catNav";
 
 export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch(
@@ -48,6 +49,7 @@ const Product: NextPage<AirProps> = ({ recs }) => {
             );
           })}
         </div>
+        <CatNav recs={recs} />
         {/* </div> */}
         <div className="mx-auto">
           <ul className="grid grid-cols-2 lg:grid-cols-3 gap-4 p-2  max-w-screen-lg">
