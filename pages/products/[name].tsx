@@ -165,7 +165,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
         />
       </Head>
       <div className="flex flex-col items-center lg:flex-row mx-4 my-8">
-        <div className="w-2/3 lg:w-2/5 ">
+        <div className="lg:w-3/5 ">
           <div className="carousel rounded-box w-full">
             {/* <div className="flex flex-auto flex-col"> */}
             {/* {product[0].fields.title} */}
