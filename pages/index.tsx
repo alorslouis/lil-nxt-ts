@@ -96,12 +96,12 @@ const Home: NextPage<SectionProps> = ({ rea }) => {
                 </div>
                 {record.fields.linkTo ? (
                   <Link href={record.fields.linkTo}>
-                    <button className="p-2 my-2 font-nimb ">
+                    <button className="p-2 my-2 font-futura ">
                       {record.fields?.Caption}
                     </button>
                   </Link>
                 ) : (
-                  <p className="p-2 my-2 font-nimb ">
+                  <p className="p-2 my-2 font-futura ">
                     {record.fields?.Caption}
                   </p>
                 )}
