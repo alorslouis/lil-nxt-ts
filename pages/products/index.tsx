@@ -42,7 +42,7 @@ const Product: NextPage<AirProps> = ({ recs }) => {
           {jj.map((j) => {
             return (
               <Link key={j} href={`products/category/${j}`}>
-                <div className=" uppercase hover:scale-95 font-futura self-center bg-slate-600 dark:bg-slate-200 hover:backdrop-brightness-125 border-transparent backdrop-blur-lg first:rounded-bl-lg last:rounded-br-lg active:translate-y-1 active:shadow-lg border-b-2 hover:border-black dark:hover:border-b-white bg-opacity-10 dark:bg-opacity-10 px-4 py-4 cursor-pointer transition-all ease-in-out">
+                <div className=" uppercase text-xs hover:scale-95 font-futura self-center bg-slate-600 dark:bg-slate-200 hover:backdrop-brightness-125 border-transparent backdrop-blur-lg first:rounded-bl-lg last:rounded-br-lg active:translate-y-1 active:shadow-lg border-b-2 hover:border-black dark:hover:border-b-white bg-opacity-10 dark:bg-opacity-10 px-4 py-4 cursor-pointer transition-all ease-in-out">
                   {j}
                 </div>
               </Link>
@@ -57,7 +57,7 @@ const Product: NextPage<AirProps> = ({ recs }) => {
               products.records.map((record) => (
                 <li key={record.id} className="flex ">
                   <Link href={`/products/${record.fields.route}`}>
-                    <div className="flex flex-col grow flex-1 cursor-pointer mx-2 px-6 mt-auto p-2  self-center rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1 active:shadow-lg">
+                    <div className="flex flex-col grow flex-1 cursor-pointer mx-2 mt-auto p-2 self-center rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1 active:shadow-lg">
                       <div className="mt-auto">
                         {record.fields?.attach ? (
                           <Image
