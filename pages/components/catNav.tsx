@@ -29,7 +29,7 @@ export default function CatNav({ recs }: AirProps) {
   // const f = GetRecs();
 
   console.log({ catNav: recs });
-  return <div>{JSON.stringify(recs)}t</div>;
+  return <div>{JSON.stringify("hi jimothy")}</div>;
 }
 
 async function GetRecs() {
