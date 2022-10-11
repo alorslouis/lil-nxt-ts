@@ -164,7 +164,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
           key="ogimage"
         />
       </Head>
-      <div className="flex flex-col items-center lg:flex-row mx-4 my-8">
+      <div className="flex flex-col items-center lg:flex-row mx-4 ">
         <div className="lg:w-3/5 ">
           <div className="carousel rounded-box w-full">
             {/* <div className="flex flex-auto flex-col"> */}
