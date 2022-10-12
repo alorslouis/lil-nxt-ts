@@ -59,7 +59,7 @@ const Category: NextPage<AirProps> = ({ recs }) => {
     // .map((r) => r)
     .filter((r) => r.fields.category === category);
 
-  const ff = { records: product };
+  // const ff = { records: product };
 
   console.log(product);
   return (
@@ -70,6 +70,7 @@ const Category: NextPage<AirProps> = ({ recs }) => {
       {/* <div className="flex sticky top-0 z-10 self-start"> */}
       <hr />
       <div className="flex sticky top-0 z-10 self-start">
+        {/* <CatNav recs={recs} /> */}
         <CatNav recs={recs} />
       </div>
       {/* </div> */}
