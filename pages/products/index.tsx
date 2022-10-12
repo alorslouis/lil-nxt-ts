@@ -10,7 +10,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch(
     `https://api.airtable.com/v0/${process.env.base_id}/products?filterByFormula=AND(({isActive}=1))&api_key=${process.env.api_key}`
   );
-  const recs = (await res.json()) as AirRecords;
+  const recs: AirRecords = await res.json();
 
   return {
     props: {
