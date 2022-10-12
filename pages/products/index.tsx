@@ -35,10 +35,10 @@ const Product: NextPage<AirProps> = ({ recs }) => {
   return (
     <div>
       {/* category nav bar */}
-      <hr />
+      {/* <hr /> */}
       <div className="flex flex-col">
         {/* <div className="flex sticky top-0 z-10"> */}
-        <div className="flex sticky top-0 z-10 self-start">
+        {/* <div className="flex sticky top-0 z-10 self-start">
           {jj.map((j) => {
             return (
               <Link key={j} href={`products/category/${j}`}>
@@ -48,8 +48,11 @@ const Product: NextPage<AirProps> = ({ recs }) => {
               </Link>
             );
           })}
+        </div> */}
+        <hr />
+        <div className="flex sticky top-0 z-10 self-start">
+          <CatNav recs={recs} />
         </div>
-        <CatNav recs={recs} />
         {/* </div> */}
         <div className="mx-auto">
           <ul className="grid grid-cols-2 lg:grid-cols-3 gap-4 p-2  max-w-screen-lg">
