@@ -1,7 +1,6 @@
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import Router, { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import { AirProps } from "../products/category/[category]";
 import { AirRecords } from "../products/[name]";
 
@@ -22,13 +21,7 @@ import { AirRecords } from "../products/[name]";
 //   };
 // };
 
-export default function CatNav({ recs }: AirProps) {
-  // const CatNav = () => {
-  // const res = await fetch("/api/products");
-  // const recs = (await res.json()) as ProductApi[];
-
-  // const f = GetRecs();
-
+const CatNav = ({ recs }: AirProps) => {
   const router = useRouter();
 
   const ff = router.asPath.split("/");
@@ -36,11 +29,15 @@ export default function CatNav({ recs }: AirProps) {
   console.log(cat);
   console.log({ catNav: recs });
 
-  const categories = new Set<string>();
-  recs.records.forEach((e) => {
-    categories.add(e.fields.category);
-  });
-  const jj = Array.from(categories.values());
+  const jj = recs.records.map((r) => r.fields.category);
+
+  // const categories = new Set<string>();
+  // recs.records.forEach((e) => {
+  //   categories.add(e.fields.category);
+  // });
+
+  // const jj = Array.from(categories.values());
+
   return (
     <div className="flex sticky flex-wrap top-0 z-10 self-start">
       {jj.map((j) => {
@@ -56,40 +53,22 @@ export default function CatNav({ recs }: AirProps) {
           </Link>
         );
       })}
+      t
     </div>
   );
-}
+};
 
-// async function GetRecs() {
-//   const res = await fetch("/api/products");
+export default CatNav;
 
-//   const [data, setData] = useState(null);
-//   useEffect(() => {
-//     let ignore = false;
-//     fetch("/api/products")
-//       .then((response) => response.json())
-//       .then((json) => {
-//         if (!ignore) {
-//           setData(json);
-//         }
-//       });
-//     return () => {
-//       ignore = true;
-//     };
-//   }, []);
-//   return data;
-// }
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await fetch(
+    `https://api.airtable.com/v0/${process.env.base_id}/products?filterByFormula=AND(({isActive}=1))&api_key=${process.env.api_key}`
+  );
+  const recs: AirRecords = await res.json();
 
-// export default CatNav;
-
-interface ProductApi {
-  name: string;
-  id: string;
-  // id: product.fields.title.replace(/\s+/g, "-").toLowerCase(),
-  price: number;
-  description: string;
-  image: string;
-  stock: number;
-  isActive: boolean;
-  category: string;
-}
+  return {
+    props: {
+      recs,
+    },
+  };
+};
