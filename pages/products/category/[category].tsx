@@ -27,9 +27,13 @@ export async function getStaticPaths() {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const route = params?.category;
   const res = await fetch(
-    `https://api.airtable.com/v0/${process.env.base_id}/products?filterByFormula=AND(({category}="${route}"),({isActive}=1))&api_key=${process.env.api_key}`
+    // `https://api.airtable.com/v0/${process.env.base_id}/products?filterByFormula=AND(({category}="${route}"),({isActive}=1))&api_key=${process.env.api_key}`
+    `https://api.airtable.com/v0/${process.env.base_id}/products?filterByFormula=AND(({isActive}=1))&api_key=${process.env.api_key}`
   );
-  const recs = (await res.json()) as AirRecords;
+  // const refs: AirRecords = await res.json();
+  const recs: AirRecords = await res.json();
+
+  // const recs = refs.records.filter((r: Record) => r.fields.category === route);
 
   return {
     props: {
@@ -51,17 +55,23 @@ const Category: NextPage<AirProps> = ({ recs }) => {
   // console.log(recs.records[0]);
   // console.log(category);
 
-  const product = recs;
+  const product = recs.records
+    // .map((r) => r)
+    .filter((r) => r.fields.category === category);
 
-  // console.log(product);
+  const ff = { records: product };
+
+  console.log(product);
   return (
     <>
       <Link href={"/products/category"}>
         <h1 className="text-xl font-futura cursor-pointer">{category}</h1>
       </Link>
-      <CatNav recs={product} />
+      {/* <div className="flex sticky top-0 z-10 self-start"> */}
+      <CatNav recs={recs} />
+      {/* </div> */}
       <ul className="grid grid-cols-2 lg:grid-cols-auto gap-4 p-2 my-4 mx-auto max-w-screen-md">
-        {product.records.map((prod: Record) => (
+        {product.map((prod: Record) => (
           <li key={prod.id} className="flex grow ">
             <Link href={`/products/${prod.fields.route}`}>
               <div className="flex flex-col grow flex-1 cursor-pointer mx-2  mt-auto p-2  self-center rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1 active:shadow-lg">
