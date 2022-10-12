@@ -17,10 +17,13 @@ import products from "../api/products";
 //   records: Array<Record>;
 // }
 
+// export interface AirRecords {
+//   records: Array<{
+//     record: Record;
+//   }>;
+// }
 export interface AirRecords {
-  records: Array<{
-    record: Record;
-  }>;
+  records: Record[];
 }
 
 export interface AirRecord {
