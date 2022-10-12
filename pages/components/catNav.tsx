@@ -29,18 +29,19 @@ const CatNav = ({ recs }: AirProps) => {
   console.log(cat);
   console.log({ catNav: recs });
 
+  const unique: string[] = [];
+
+  for (let i = 0; i < recs.records.length; i++) {
+    if (!unique.includes(recs.records[i].fields.category)) {
+      unique.push(recs.records[i].fields.category);
+    }
+  }
+
   const jj = recs.records.map((r) => r.fields.category);
-
-  // const categories = new Set<string>();
-  // recs.records.forEach((e) => {
-  //   categories.add(e.fields.category);
-  // });
-
-  // const jj = Array.from(categories.values());
 
   return (
     <div className="flex sticky flex-wrap top-0 z-10 self-start">
-      {jj.map((j) => {
+      {unique.map((j) => {
         return (
           <Link key={j} href={`/products/category/${j}`}>
             <div
@@ -53,7 +54,6 @@ const CatNav = ({ recs }: AirProps) => {
           </Link>
         );
       })}
-      t
     </div>
   );
 };
