@@ -64,11 +64,14 @@ const Category: NextPage<AirProps> = ({ recs }) => {
   console.log(product);
   return (
     <>
-      <Link href={"/products/category"}>
+      {/* <Link href={"/products/category"}>
         <h1 className="text-xl font-futura cursor-pointer">{category}</h1>
-      </Link>
+      </Link> */}
       {/* <div className="flex sticky top-0 z-10 self-start"> */}
-      <CatNav recs={recs} />
+      <hr />
+      <div className="flex sticky top-0 z-10 self-start">
+        <CatNav recs={recs} />
+      </div>
       {/* </div> */}
       <ul className="grid grid-cols-2 lg:grid-cols-auto gap-4 p-2 my-4 mx-auto max-w-screen-md">
         {product.map((prod: Record) => (
