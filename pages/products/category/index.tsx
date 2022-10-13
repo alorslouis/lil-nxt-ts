@@ -71,9 +71,6 @@ const Categories: NextPage<Props> = ({ recs }) => {
 
   return (
     <div>
-      <Link href={"/products"}>
-        <h1 className="text-xl font-futura cursor-pointer">categories</h1>
-      </Link>
       <ul className="grid grid-cols-2 lg:grid-cols-auto gap-4 p-2 mx-auto max-w-screen-md">
         {qq.map((r) => (
           <li key={r.id} className="flex flex-grow justify-center ">
