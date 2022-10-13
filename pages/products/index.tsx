@@ -82,7 +82,7 @@ const Product: NextPage<AirProps> = ({ recs }) => {
                           />
                         )}
                       </div>
-                      <p className="font-thin font-futura capitalize text-sm md:text-base py-6 mt-auto">
+                      <p className="font-bold font-futura capitalize text-sm md:text-base py-6 mt-auto">
                         {record.fields.title}
                       </p>
                     </div>
