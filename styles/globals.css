@@ -23,6 +23,13 @@
   src: local(""), url("/fonts/NimbusSanTBlaConRegular.ttf") format("ttf");
 }
 
+@font-face {
+  font-family: "HelveticaNeueCondensedBold";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("/fonts/HelveticaNeueCondensedBold.ttf") format("ttf");
+}
+
 /* @font-face {
   font-family: "MyFont";
   font-style: bold;
