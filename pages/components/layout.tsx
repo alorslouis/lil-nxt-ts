@@ -32,7 +32,7 @@ export default function Layout({
 
   // if @ root then is fine to use the empty string
   // else format the path & prepend with //
-  const q = pp == "" ? pp : `LILLIES // ${FormatPath(pp)}`;
+  const q = pp == "" ? "LILLIES" : `LILLIES // ${FormatPath(pp)}`;
 
   return (
     <>
