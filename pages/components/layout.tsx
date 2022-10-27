@@ -67,14 +67,14 @@ export default function Layout({
                 LILLIES
               </h1>
             </Link>
-            <Link href="/">
+            {/* <Link href="/">
               <h1 className="font-helvetica text-8xl text-center cursor-pointer">
                 LILLIES
               </h1>
             </Link>
             <Link href="/">
               <h1 className=" text-8xl text-center cursor-pointer">LILLIES</h1>
-            </Link>
+            </Link> */}
             <p className="text-sm font-extralight font-nimbus">
               BCN • LDN • SAN
             </p>
