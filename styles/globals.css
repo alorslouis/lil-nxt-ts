@@ -12,6 +12,7 @@
 @font-face {
   font-family: "Nimb";
   font-style: normal;
+
   font-weight: 400;
   src: local(""), url("/fonts/NimbusSanPRegular.ttf") format("ttf");
 }
