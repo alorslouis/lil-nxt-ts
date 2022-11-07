@@ -123,6 +123,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { name } = router.query;
 
   const [inStock, setInStock] = useState(false);
+  const [invLoading, setInvLoading] = useState(true);
 
   const product: Record = post.records[0];
 
@@ -137,7 +138,8 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
     // x.push(posts);
     // console.log(posts);
     // console.log(ff);
-    console.log(fff);
+    // console.log(fff);
+    setInvLoading(false);
     // console.log(qq);
 
     if (fff[0].stock > 0 && fff[0].isActive) {
@@ -235,7 +237,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
             // disabled={product.fields.inventory === 0}
             disabled={product.fields.inventory === 0 || !inStock}
           >
-            {inStock ? "+" : "out of stock"}
+            {inStock ? "+" : invLoading ? "loading..." : "out of stock"}
           </button>
           <p className="p-2 my-2 font-thin font-futura">
             {product.fields.description}
