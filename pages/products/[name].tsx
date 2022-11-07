@@ -122,7 +122,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter();
   const { name } = router.query;
 
-  const [inStock, setInStock] = useState(true);
+  const [inStock, setInStock] = useState(false);
 
   const product: Record = post.records[0];
 
