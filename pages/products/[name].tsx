@@ -146,11 +146,15 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
     return setInStock(false);
   };
 
+  useEffect(() => {
+    GI();
+  }, []);
+
   console.log(inStock);
 
-  if (typeof window !== "undefined") {
-    GI();
-  }
+  // if (typeof window !== "undefined") {
+  //   GI();
+  // }
 
   // GetInv();
   // GI();
