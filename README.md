@@ -1,6 +1,6 @@
 ![Lillies](/public/lilsOG.png)
 
-# [Lillies Studio](https://www.lilliesstudio.com) • [IG](https://instagram.com/lilliesstudios)
+# [Lillies Studio](https://www.lilliesstudios.com) • [IG](https://instagram.com/lilliesstudios)
 
 Do you like fashion? We like fashion. We have fashion.
 
