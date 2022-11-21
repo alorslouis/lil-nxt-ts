@@ -164,6 +164,53 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
 
   // console.log(xx);
 
+  const imgsURls = product?.fields?.attach.map((f) => f.url);
+
+  function addProductJsonLd() {
+    return {
+      __html: `{
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "Executive Anvil",
+      "image": "${imgsURls[0]}",
+      "description": "${product?.fields?.description}",
+      // "sku": "0446310786",
+      // "mpn": "925872",
+      "brand": {
+        "@type": "Brand",
+        "name": "Lillies Studios"
+      },
+      "review": {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "4",
+          "bestRating": "5"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "hamez"
+        }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.4",
+        "reviewCount": "89"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://example.com/anvil",
+        "priceCurrency": "USD",
+        "price": "119.99",
+        "priceValidUntil": "2020-11-20",
+        "itemCondition": "https://schema.org/UsedCondition",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+  `,
+    };
+  }
+
   return (
     <>
       <Head>
@@ -171,6 +218,11 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
           property="og:image"
           content={product.fields.attach[0].url}
           key="ogimage"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={addProductJsonLd()}
+          key="product-jsonld"
         />
       </Head>
       <div className="flex flex-col items-center lg:flex-row mx-4 ">
