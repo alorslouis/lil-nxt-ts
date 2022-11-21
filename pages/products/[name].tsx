@@ -171,39 +171,15 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
       __html: `{
       "@context": "https://schema.org/",
       "@type": "Product",
-      "name": "Executive Anvil",
+      "name": "${product.fields.title}",
       "image": "${imgsURls[0]}",
       "description": "${product?.fields?.description}",
-      // "sku": "0446310786",
-      // "mpn": "925872",
-      "brand": {
-        "@type": "Brand",
-        "name": "Lillies Studios"
-      },
-      "review": {
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "4",
-          "bestRating": "5"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "hamez"
-        }
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.4",
-        "reviewCount": "89"
-      },
       "offers": {
         "@type": "Offer",
-        "url": "https://example.com/anvil",
-        "priceCurrency": "USD",
-        "price": "119.99",
-        "priceValidUntil": "2020-11-20",
-        "itemCondition": "https://schema.org/UsedCondition",
+        "url": "https://www.lilliesstudios.com${router.asPath}",
+        "priceCurrency": "EUR",
+        "price": "${product?.fields?.priceEur}",
+        "itemCondition": "https://schema.org/NewCondition",
         "availability": "https://schema.org/InStock"
       }
     }
