@@ -181,7 +181,9 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
         "price": "${product?.fields?.priceEur}",
         "itemCondition": "https://schema.org/NewCondition",
         "availability": ${
-          inStock ? "https://schema.org/InStock" : "https://schema.org/SoldOut"
+          inStock
+            ? '"https://schema.org/InStock"'
+            : '"https://schema.org/SoldOut"'
         }
       }
     }
