@@ -57,8 +57,27 @@ const Home: NextPage<SectionProps> = ({ rea }) => {
   // const f = x[0].id;
   // console.log(f);
 
+  function addProductJsonLd() {
+    return {
+      __html: `{
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "url": "http://www.lilliesstudios.com",
+        "logo": "https://www.lilliesstudios.com/lilsOG.png"
+    }
+  `,
+    };
+  }
+
   return (
     <>
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={addProductJsonLd()}
+          key="product-jsonld"
+        />
+      </Head>
       <div className="container text-center">
         {/* <div>{products}</div> */}
         {/* <ul>
