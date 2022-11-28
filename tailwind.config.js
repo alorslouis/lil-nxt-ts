@@ -10,7 +10,7 @@ module.exports = {
         futura: ["Futura", "ui-sans-serif", "system-ui"],
         nimbus: ["NimbusSanTBlaConRegular", "ui-sans-serif", "system-ui"],
         nimb: ["Nimb"],
-        helvetica: ["HelveticaNeueCondensedBold"],
+        helvetica: ["Helvetica"],
       },
     },
   },
