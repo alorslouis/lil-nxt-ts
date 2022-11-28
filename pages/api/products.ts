@@ -28,7 +28,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       stock: record.fields.inventory,
       isActive: record.fields.isActive,
       category: record.fields.category,
-      weight: record?.fields?.weight ?? 200,
+      // weight: record?.fields?.weight ?? 200,
+      weight: 200,
     };
   });
 
