@@ -93,6 +93,7 @@ const Home: NextPage<SectionProps> = ({ rea }) => {
         {/* <div>{records[0].fields.brand}</div> */}
 
         {/* <div>{rea.records.map((record) => record.fields.Images.attach)}</div> */}
+        <div>test</div>
         <div>
           {rea.records.map((record) => {
             return (
