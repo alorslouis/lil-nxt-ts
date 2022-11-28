@@ -262,13 +262,13 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
             {product?.fields?.title}
           </div>
           {/* <div>{inStock ? "true" : "false"}</div> */}
-          <div className="my-1 font-bold font-helvetice uppercase text-sm">
+          <div className="my-1 font-bold font-helvetica uppercase text-sm">
             – {product.fields.brand} –
           </div>
-          <div className="my-1 text-sm font-bold font-helvetice">
+          <div className="my-1 text-sm font-bold font-helvetica">
             size: {product.fields.size}
           </div>
-          <div className="my-1 font-bold font-helvetice">
+          <div className="my-1 font-bold font-helvetica">
             €{product.fields.priceEur}
           </div>
           {/* test - record: {name} */}
@@ -295,7 +295,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
           >
             {inStock ? "+" : invLoading ? "checking stock..." : "out of stock"}
           </button>
-          <p className="p-2 my-2 font-thin font-helvetice">
+          <p className="p-2 my-2 font-thin font-helvetica">
             {product.fields.description}
           </p>
         </div>
