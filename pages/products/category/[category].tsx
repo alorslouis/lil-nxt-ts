@@ -100,7 +100,7 @@ const Category: NextPage<AirProps> = ({ recs }) => {
                     />
                   )}
                 </div>
-                <p className="font-bold font-helvetice text-sm md:text-base py-6 mt-auto capitalize">
+                <p className="font-bold font-helvetica text-sm md:text-base py-6 mt-auto capitalize">
                   {prod.fields.title}
                 </p>
               </div>
