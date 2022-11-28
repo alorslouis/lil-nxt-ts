@@ -230,7 +230,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
                 </div>
               ))}
           </div>
-          <div className="flex justify-center w-full py-2 my-4 gap-2">
+          <div className="flex justify-center w-full py-2 gap-2">
             {product?.fields.attach.map((attach, index) => {
               const id = index + 1;
               return (
