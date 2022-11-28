@@ -150,7 +150,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
 
   useEffect(() => {
     GI();
-  }, []);
+  }, [inStock]);
 
   console.log(inStock);
 
@@ -234,7 +234,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
             {product?.fields.attach.map((attach, index) => {
               const id = index + 1;
               return (
-                <a href={`#item${id}`} className="btn btn-xs">
+                <a href={`#item${id}`} key={attach.id} className="btn btn-xs">
                   {id}
                 </a>
               );
