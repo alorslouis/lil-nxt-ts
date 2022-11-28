@@ -289,7 +289,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
               product?.fields?.attach &&
               product?.fields?.attach[0]?.thumbnails?.large?.url
             }
-            data-item-weight="200"
+            data-item-weight={200}
             data-item-name={product.fields.title}
             // disabled={product.fields.inventory === 0}
             disabled={product.fields.inventory === 0 || !inStock}
