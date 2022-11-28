@@ -283,13 +283,16 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
             data-item-id={product.id}
             data-item-price={product.fields.priceEur}
             // data-item-url={`${siteUrl}/products/${product.id}`}
-            data-item-url={"api/products"}
+            data-item-url={"/api/products"}
             data-item-max-quantity={1}
             data-item-image={
               product?.fields?.attach &&
               product?.fields?.attach[0]?.thumbnails?.large?.url
             }
             data-item-weight={200}
+            data-item-width={20}
+            data-item-height={10}
+            data-item-length={30}
             data-item-name={product.fields.title}
             // disabled={product.fields.inventory === 0}
             disabled={product.fields.inventory === 0 || !inStock}
