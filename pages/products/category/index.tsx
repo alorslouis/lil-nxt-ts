@@ -87,7 +87,7 @@ const Categories: NextPage<Props> = ({ recs }) => {
                     unoptimized
                   />
                 </div>
-                <p className="cursor-pointer font-helvetice my-4 text-center">
+                <p className="cursor-pointer font-helvetica my-4 text-center">
                   {r.fields.category}
                 </p>
               </div>
