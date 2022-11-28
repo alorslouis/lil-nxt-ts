@@ -48,6 +48,7 @@ export interface Fields {
   title: string;
   route: string;
   size: string;
+  weight?: number;
   priceEur: number;
   inventory: number;
   description: string;
