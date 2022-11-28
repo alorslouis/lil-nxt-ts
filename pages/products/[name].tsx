@@ -207,14 +207,15 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
       </Head>
       <div className="flex flex-col items-center lg:flex-row mx-4 ">
         <div className="lg:w-3/5 ">
-          <div className="carousel rounded-box w-full">
+          <div className="carousel rounded-box w-full overflow-hidden">
             {/* <div className="flex flex-auto flex-col"> */}
             {/* {product[0].fields.title} */}
             {product?.fields?.attach &&
-              product?.fields?.attach.map((attach) => (
+              product?.fields?.attach.map((attach, index) => (
                 <div
+                  id={`item${index + 1}`}
                   key={attach.url}
-                  className="carousel-item w-full self-center cursor-all-scroll"
+                  className="carousel-item w-full self-center  cursor-all-scroll"
                 >
                   <Zoom>
                     <Image
@@ -229,6 +230,28 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
                 </div>
               ))}
           </div>
+          <div className="flex justify-center w-full py-2 my-4 gap-2">
+            {product?.fields.attach.map((attach, index) => {
+              const id = index + 1;
+              return (
+                <a href={`#item${id}`} className="btn btn-xs">
+                  {id}
+                </a>
+              );
+            })}
+            {/* <a href="#item1" className="btn btn-xs">
+              1
+            </a>
+            <a href="#item2" className="btn btn-xs">
+              2
+            </a>
+            <a href="#item3" className="btn btn-xs">
+              3
+            </a>
+            <a href="#item4" className="btn btn-xs">
+              4
+            </a> */}
+          </div>
 
           {/* </div> */}
         </div>
@@ -239,13 +262,13 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
             {product?.fields?.title}
           </div>
           {/* <div>{inStock ? "true" : "false"}</div> */}
-          <div className="my-1 font-bold font-futura uppercase text-sm">
+          <div className="my-1 font-bold font-helvetice uppercase text-sm">
             – {product.fields.brand} –
           </div>
-          <div className="my-1 text-sm font-bold font-futura">
+          <div className="my-1 text-sm font-bold font-helvetice">
             size: {product.fields.size}
           </div>
-          <div className="my-1 font-bold font-futura">
+          <div className="my-1 font-bold font-helvetice">
             €{product.fields.priceEur}
           </div>
           {/* test - record: {name} */}
@@ -272,7 +295,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
           >
             {inStock ? "+" : invLoading ? "checking stock..." : "out of stock"}
           </button>
-          <p className="p-2 my-2 font-thin font-futura">
+          <p className="p-2 my-2 font-thin font-helvetice">
             {product.fields.description}
           </p>
         </div>
