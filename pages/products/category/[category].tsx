@@ -65,7 +65,7 @@ const Category: NextPage<AirProps> = ({ recs }) => {
   return (
     <>
       {/* <Link href={"/products/category"}>
-        <h1 className="text-xl font-futura cursor-pointer">{category}</h1>
+        <h1 className="text-xl font-helvetice cursor-pointer">{category}</h1>
       </Link> */}
       {/* <div className="flex sticky top-0 z-10 self-start"> */}
       <hr />
@@ -100,7 +100,7 @@ const Category: NextPage<AirProps> = ({ recs }) => {
                     />
                   )}
                 </div>
-                <p className="font-bold font-futura text-sm md:text-base py-6 mt-auto capitalize">
+                <p className="font-bold font-helvetice text-sm md:text-base py-6 mt-auto capitalize">
                   {prod.fields.title}
                 </p>
               </div>
