@@ -289,9 +289,11 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
               product?.fields?.attach &&
               product?.fields?.attach[0]?.thumbnails?.large?.url
             }
+            // weight is in grams
             data-item-weight={200}
+            // dimensions are in cm
             data-item-width={20}
-            data-item-height={10}
+            data-item-height={2}
             data-item-length={30}
             data-item-name={product.fields.title}
             // disabled={product.fields.inventory === 0}
