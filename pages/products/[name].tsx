@@ -214,7 +214,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
             {product?.fields?.attach &&
               product?.fields?.attach.map((attach, index) => (
                 <div
-                  id={`item${index + 1}`}
+                  id={`img-${index + 1}`}
                   key={attach.url}
                   className="carousel-item w-full self-center  cursor-all-scroll"
                 >
@@ -235,7 +235,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
             {product?.fields.attach.map((attach, index) => {
               const id = index + 1;
               return (
-                <a href={`#item${id}`} key={attach.id} className="btn btn-xs">
+                <a href={`#img-${id}`} key={attach.id} className="btn btn-xs">
                   {id}
                 </a>
               );
