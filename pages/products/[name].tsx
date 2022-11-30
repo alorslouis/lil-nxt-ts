@@ -214,7 +214,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
             {product?.fields?.attach &&
               product?.fields?.attach.map((attach, index) => (
                 <div
-                  id={`item${index + 1}`}
+                  id={`img-${index + 1}`}
                   key={attach.url}
                   className="carousel-item w-full self-center  cursor-all-scroll"
                 >
@@ -224,7 +224,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
                       alt={product.fields.title}
                       width={attach.width}
                       height={attach.height}
-                      className="w-full"
+                      className="w-full "
                       unoptimized
                     />
                   </Zoom>
@@ -235,7 +235,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
             {product?.fields.attach.map((attach, index) => {
               const id = index + 1;
               return (
-                <a href={`#item${id}`} key={attach.id} className="btn btn-xs">
+                <a href={`#img-${id}`} key={attach.id} className="btn btn-xs">
                   {id}
                 </a>
               );
@@ -283,13 +283,18 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
             data-item-id={product.id}
             data-item-price={product.fields.priceEur}
             // data-item-url={`${siteUrl}/products/${product.id}`}
-            data-item-url={"api/products"}
+            data-item-url={"/api/products"}
             data-item-max-quantity={1}
             data-item-image={
               product?.fields?.attach &&
               product?.fields?.attach[0]?.thumbnails?.large?.url
             }
-            data-item-weight="200"
+            // weight is in grams
+            data-item-weight={200}
+            // dimensions are in cm
+            data-item-width={20}
+            data-item-height={2}
+            data-item-length={30}
             data-item-name={product.fields.title}
             // disabled={product.fields.inventory === 0}
             disabled={product.fields.inventory === 0 || !inStock}

@@ -28,7 +28,16 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       stock: record.fields.inventory,
       isActive: record.fields.isActive,
       category: record.fields.category,
-      weight: record?.fields?.weight ?? 200,
+      // weight: record?.fields?.weight ?? 200,
+      dimensions: {
+        weight: 200,
+        width: 20,
+        height: 10,
+        length: 30,
+      },
+      url: process.env.VERCEL_URL
+        ? `${process.env.VERCEL_URL}/api/products`
+        : "localhost:3000",
     };
   });
 
