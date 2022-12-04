@@ -292,9 +292,9 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
             // weight is in grams
             data-item-weight={200}
             // dimensions are in cm
-            data-item-width={20}
+            data-item-width={12}
             data-item-height={2}
-            data-item-length={30}
+            data-item-length={12}
             data-item-name={product.fields.title}
             // disabled={product.fields.inventory === 0}
             disabled={product.fields.inventory === 0 || !inStock}
