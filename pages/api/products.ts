@@ -30,10 +30,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       category: record.fields.category,
       // weight: record?.fields?.weight ?? 200,
       dimensions: {
-        weight: 200,
-        width: 20,
-        height: 10,
-        length: 30,
+        weight: record?.fields?.weight,
+        width: 12,
+        height: 2,
+        length: 12,
       },
       url: process.env.VERCEL_URL
         ? `${process.env.VERCEL_URL}/api/products`
