@@ -290,7 +290,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
               product?.fields?.attach[0]?.thumbnails?.large?.url
             }
             // weight is in grams
-            data-item-weight={2}
+            data-item-weight={product?.fields?.weight}
             // dimensions are in cm
             data-item-width={12}
             data-item-height={2}
