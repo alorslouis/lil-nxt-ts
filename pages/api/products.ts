@@ -30,7 +30,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       category: record.fields.category,
       // weight: record?.fields?.weight ?? 200,
       dimensions: {
-        weight: record?.fields?.weight,
+        weight: record?.fields?.weight ?? 200,
         width: 12,
         height: 2,
         length: 12,
