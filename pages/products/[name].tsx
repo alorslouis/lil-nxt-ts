@@ -207,7 +207,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
         />
       </Head>
       <div className="flex flex-col items-center lg:flex-row mx-4 ">
-        <div className="lg:w-3/5 ">
+        <div className="lg:w-3/5 mt-4">
           <div className="carousel rounded-box w-full overflow-hidden">
             {/* <div className="flex flex-auto flex-col"> */}
             {/* {product[0].fields.title} */}
@@ -231,7 +231,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
                 </div>
               ))}
           </div>
-          <div className="flex justify-center w-full py-2 gap-2">
+          <div className="flex justify-center w-full my-4 gap-2">
             {product?.fields.attach.map((attach, index) => {
               const id = index + 1;
               return (
@@ -258,8 +258,8 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
         </div>
 
         {/* <div className="self-center flex flex-auto gap-2"> */}
-        <div className="flex flex-auto mx-auto p-8 flex-col self-center items-center md:w-2/5">
-          <div className="my-1 font-nimb font-bold text-2xl capitalize">
+        <div className="flex flex-auto mx-auto m-2 md:p-8 flex-col self-center items-center md:w-2/5">
+          <div className="my-1 font-helvetica font-bold text-2xl capitalize">
             {product?.fields?.title}
           </div>
           {/* <div>{inStock ? "true" : "false"}</div> */}
