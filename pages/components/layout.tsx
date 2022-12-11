@@ -68,29 +68,10 @@ export default function Layout({
               </h1>
             </Link>
 
-            {/* <Link href="/">
-              <h1 className="font-helvetica text-8xl text-center cursor-pointer">
-                LILLIES
-              </h1>
-            </Link>
-            <Link href="/">
-              <h1 className=" text-8xl text-center cursor-pointer">LILLIES</h1>
-            </Link> */}
             {/* <p className="text-sm font-extralight font-nimbus">
               BCN • LDN • SAN
             </p> */}
           </div>
-          {/* <div className="justify-end">cart</div> */}
-          {/* <hr /> */}
-          {/* <div className="snipcart-checkout">cart</div>
-          <span className="snipcart-items-count"></span>
-          <span className="snipcart-total-price"></span>
-          <div className="flex justify-evenly py-4">
-            <p>cat2</p>
-            <p>cat2</p>
-            <p>cat2</p>
-          </div> */}
-          {/* <p className="text-xl">custom couture</p> */}
         </nav>
         <main className="text-center mb-12">{children}</main>
 
