@@ -63,7 +63,7 @@ export default function Layout({
         <nav className="text-center py-4 flex self-center ">
           <div className="">
             <Link href="/">
-              <h1 className="text-bold font-black font-helvetica text-8xl text-center cursor-pointer">
+              <h1 className="text-bold font-black font-helvetica text-6xl sm:text-8xl text-center cursor-pointer">
                 LILLIES
               </h1>
             </Link>
@@ -76,9 +76,9 @@ export default function Layout({
             <Link href="/">
               <h1 className=" text-8xl text-center cursor-pointer">LILLIES</h1>
             </Link> */}
-            <p className="text-sm font-extralight font-nimbus">
+            {/* <p className="text-sm font-extralight font-nimbus">
               BCN • LDN • SAN
-            </p>
+            </p> */}
           </div>
           {/* <div className="justify-end">cart</div> */}
           {/* <hr /> */}
