@@ -5,7 +5,7 @@ import { AirRecords, Record } from "../products/[name]";
 // get products
 const getProducts = async () => {
   const res = await fetch(
-    `https://api.airtable.com/v0/${process.env.base_id}/products/?api_key=${process.env.api_key}`
+    `https://api.airtable.com/v0/${process.env.base_id}/products?filterByFormula=AND(({isActive}=1))&api_key=${process.env.api_key}`
   );
   const recs = await res.json();
 

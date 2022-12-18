@@ -9,19 +9,20 @@ import CatNav from "../../components/catNav";
 export async function getStaticPaths() {
   // Call an external API endpoint to get posts
   const res = await fetch(
-    `https://api.airtable.com/v0/${process.env.base_id}/products?api_key=${process.env.api_key}`
+    `https://api.airtable.com/v0/${process.env.base_id}/products?filterByFormula=AND(({isActive}=1))&api_key=${process.env.api_key}`
   );
   const posts = await res.json();
+
   //
 
   // Get the paths we want to pre-render based on posts
-  const paths = posts.records.map((post: Record) => ({
+  const paths = await posts.records.map((post: Record) => ({
     params: { category: post.fields.category },
   }));
 
   // We'll pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.
-  return { paths, fallback: false };
+  return { paths: paths, fallback: false };
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
