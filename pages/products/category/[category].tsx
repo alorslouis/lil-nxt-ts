@@ -15,14 +15,18 @@ export async function getStaticPaths() {
 
   //
 
+  // console.log(posts);
+
   // Get the paths we want to pre-render based on posts
-  const paths = await posts.records.map((post: Record) => ({
-    params: { category: post.fields.category },
+  const paths = await posts?.records?.map((post: Record) => ({
+    params: { category: post?.fields?.category },
   }));
+
+  // const ff = new Set(paths);
 
   // We'll pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.
-  return { paths: paths, fallback: false };
+  return { paths, fallback: false };
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
@@ -51,7 +55,7 @@ export interface AirProps {
 
 const Category: NextPage<AirProps> = ({ recs }) => {
   const router = useRouter();
-  const { category } = router.query;
+  const { category } = router?.query;
 
   // console.log(recs.records[0]);
   // console.log(category);
@@ -76,7 +80,7 @@ const Category: NextPage<AirProps> = ({ recs }) => {
       </div>
       {/* </div> */}
       <ul className="grid grid-cols-2 lg:grid-cols-auto gap-4 p-2 my-4 mx-auto max-w-screen-md">
-        {product.map((prod: Record) => (
+        {product?.map((prod: Record) => (
           <li key={prod.id} className="flex grow ">
             <Link href={`/products/${prod.fields.route}`}>
               <div className="flex flex-col grow flex-1 cursor-pointer mx-2  mt-auto p-2  self-center rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1 active:shadow-lg">
