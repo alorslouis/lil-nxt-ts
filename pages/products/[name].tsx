@@ -165,7 +165,8 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
 
   // console.log(xx);
 
-  const imgsURls = product?.fields?.attach.map((f) => f.url);
+  const imgsURls =
+    product?.fields?.attach?.map((f) => f.url) ?? "../lilsOG.png";
 
   function addProductJsonLd() {
     return {
@@ -197,7 +198,11 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
       <Head>
         <meta
           property="og:image"
-          content={product.fields.attach[0].url}
+          content={
+            product?.fields?.attach?.length > 0
+              ? product?.fields?.attach[0]?.url
+              : "../lilsOG.png"
+          }
           key="ogimage"
         />
         <script
@@ -232,14 +237,20 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
               ))}
           </div>
           <div className="flex justify-center w-full my-4 gap-2">
-            {product?.fields.attach.map((attach, index) => {
-              const id = index + 1;
-              return (
-                <a href={`#img-${id}`} key={attach.id} className="btn btn-xs">
-                  {id}
-                </a>
-              );
-            })}
+            {product.fields?.attach?.length > 0
+              ? product?.fields.attach.map((attach, index) => {
+                  const id = index + 1;
+                  return (
+                    <a
+                      href={`#img-${id}`}
+                      key={attach.id}
+                      className="btn btn-xs"
+                    >
+                      {id}
+                    </a>
+                  );
+                })
+              : null}
             {/* <a href="#item1" className="btn btn-xs">
               1
             </a>
