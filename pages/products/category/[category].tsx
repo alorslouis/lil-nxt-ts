@@ -18,7 +18,7 @@ export async function getStaticPaths() {
   // console.log(posts);
 
   // Get the paths we want to pre-render based on posts
-  const paths = await posts?.records?.map((post: Record) => ({
+  const paths = posts?.records?.map((post: Record) => ({
     params: { category: post?.fields?.category },
   }));
 
@@ -30,7 +30,7 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const route = params?.category;
+  // const route = params?.category;
   const res = await fetch(
     // `https://api.airtable.com/v0/${process.env.base_id}/products?filterByFormula=AND(({category}="${route}"),({isActive}=1))&api_key=${process.env.api_key}`
     `https://api.airtable.com/v0/${process.env.base_id}/products?filterByFormula=AND(({isActive}=1))&api_key=${process.env.api_key}`
