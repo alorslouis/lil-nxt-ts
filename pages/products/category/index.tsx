@@ -84,7 +84,8 @@ const Categories: NextPage<Props> = ({ recs }) => {
                     width={r.fields.attach[0].width}
                     height={r.fields.attach[0].height}
                     layout="responsive"
-                    unoptimized
+                    // unoptimized
+                    onError={(e) => console.log(e)}
                   />
                 </div>
                 <p className="cursor-pointer font-helvetica my-4 text-center">
