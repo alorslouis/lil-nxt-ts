@@ -230,7 +230,7 @@ function Product({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
                       width={attach.width}
                       height={attach.height}
                       className="w-full "
-                      unoptimized
+                      // unoptimized
                     />
                   </Zoom>
                 </div>
