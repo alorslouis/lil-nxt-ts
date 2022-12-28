@@ -70,7 +70,8 @@ const Product: NextPage<AirProps> = ({ recs }) => {
                             width={record.fields.attach[0].width}
                             height={record.fields.attach[0].height}
                             // layout="responsive"
-                            unoptimized
+                            // unoptimized
+                            onError={(e) => console.log(e)}
                           />
                         ) : (
                           <Image
