@@ -59,7 +59,11 @@ const Product: NextPage<AirProps> = ({ recs }) => {
             {products &&
               products.records.map((record) => (
                 <li key={record.id} className="flex ">
-                  <Link href={`/products/${record.fields.route}`}>
+                  <Link
+                    href={`/products/${encodeURIComponent(
+                      record.fields.route
+                    )}`}
+                  >
                     <div className="flex flex-col grow flex-1 cursor-pointer mx-2 mt-auto p-2 self-center rounded-3xl hover:-translate-y-1 transition ease-in-out hover:shadow-lg active:translate-y-1 active:shadow-lg">
                       <div className="mt-auto">
                         {record.fields?.attach ? (
