@@ -41,11 +41,7 @@ export default function Layout({
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta property="og:title" content={q} key="ogtitle" />
-        <meta
-          property="og:description"
-          content="custom couture, hecho en barcelona"
-          key="ogdesc"
-        />
+        <meta property="og:description" content="a" key="ogdesc" />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
