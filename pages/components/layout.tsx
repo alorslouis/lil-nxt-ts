@@ -69,6 +69,7 @@ export default function Layout({
             </p> */}
           </div>
         </nav>
+
         <main className="text-center mb-12">{children}</main>
 
         <footer className="text-center">
