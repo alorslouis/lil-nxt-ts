@@ -29,7 +29,7 @@ export async function getStaticPaths() {
   return { paths, fallback: false };
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async () => {
   // const route = params?.category;
   const res = await fetch(
     // `https://api.airtable.com/v0/${process.env.base_id}/products?filterByFormula=AND(({category}="${route}"),({isActive}=1))&api_key=${process.env.api_key}`
