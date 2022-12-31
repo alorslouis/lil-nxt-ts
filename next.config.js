@@ -4,6 +4,7 @@ const nextConfig = {
   swcMinify: true,
   images: {
     domains: ["dl.airtable.com"],
+    minimumCacheTTL: 6000,
   },
 };
 
