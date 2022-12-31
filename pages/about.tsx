@@ -35,7 +35,7 @@ function About({ rea }: SectionProps) {
               layout={"responsive"}
               alt="the studio - barcelona es"
               className="rounded-md"
-              unoptimized
+              // unoptimized
             />
           </div>
         )}
