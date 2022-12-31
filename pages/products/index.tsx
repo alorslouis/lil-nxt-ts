@@ -74,6 +74,7 @@ const Product: NextPage<AirProps> = ({ recs }) => {
                             src={record.fields.attach[0].url}
                             width={record.fields.attach[0].width}
                             height={record.fields.attach[0].height}
+                            loading="lazy"
                             // layout="responsive"
                             // unoptimized
                             onError={(e) => console.log(e)}
